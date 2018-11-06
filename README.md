@@ -4,6 +4,6 @@ Collecion of style and way-of-working guides for languages and frameworks we wor
 
 ## React
 
-[Style guide](react/style-guide.md)
+[Style guide](react/style.md)
 
 [Way of working](react/way-of-working.md)

@@ -8,10 +8,10 @@ Use your best judgement and make exceptions when needed.
 
 ## Universal
 
-[Style guide](universal/style.md)
+[Style](universal/style.md)
 
 ## React
 
-[Style guide](react/style.md)
+[Style](react/style.md)
 
 [Way of working](react/way-of-working.md)

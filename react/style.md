@@ -1,42 +1,20 @@
-# Style guide
+# React style guide
 
-In most general terms: follow Clean Code. This phrase is often thrown around but I refer explicitly to the book and video series of Robert C. Martin (a.k.a. uncle Bob). This is a useful read / binge if you haven't already.
+## Unit tests
 
-Any useful rule is fine as long as it's understood by everyone in the team.
-
-Use your best judgement and make exceptions when needed.
-
-
-## Code style
-
-- Code style is unified, using a common linter and style guide.
-- Comments in code are avioded and used only in exceptional cases.
-
-
-## Commit messages
-
-- [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) by Chris Beams
-
-
-## Unit testing
-
-- Unit testing coventions (for Ruby but many apply in general): [Better specs](http://www.betterspecs.org/), [Rubocop guide on naming](https://github.com/rubocop-hq/rspec-style-guide#naming)
-- Test coverage aim: 100%. This doesn't mean that the build should fail if it's 99, but specifying lower as a goal makes no sense IMO as the goal is to have everything covered.
-- Tests should be written to test, not to increase coverage. :) Their scope should be very limited (to not bleed into other stuff, both functionality and coverage wise) and it should be clear what they test.
-
-### Naming conventions
+### Naming
 
 - Name of testfile should be the same as name of tested file. e.g. `getProxyURL.js` => `getProxyURL.test.js`
 - Test are described in 3 parts: `describe`, `context`, `it`
   - `describe` simply states the name of the component / function
   - `context` elaborates on additional state / setup
     - only if needed
-    - always starts with `when` or `with`
-    - use `describe` function
+    - always starts with `when`, `with` or `without`
+    - forms a sentence with proper grammar when composed with `it` block descriptions
+    - uses `describe` function
     - does *not* describe action, only state (e.g. correct: when button is inactive. incorrect: when button is clicked)
     - usually has a counter-example with the opposite state
   - `it` states what the tested piece of logic (referenced by describe) does in the given context
-- They should read well as a sentence
 
 Practical example:
 ```js
@@ -49,7 +27,7 @@ Practical example:
 });
 ```
 
-This read as: `describe getProxyURL: when CORS_PROXY_ENABLED env var is true, it returns the given URL with a CORS proxy`
+This read nicely as: `describe getProxyURL: when CORS_PROXY_ENABLED env var is true, it returns the given URL with a CORS proxy`
 
 Always double check whether the test actually does what the description says. E.g.
 ```
@@ -70,9 +48,7 @@ This test desciption is *not* correct. It checks that when the delete button is 
 - What should be rendered (e.g. `expect(wrapper.find(MyComponent)).toHaveLength(1);`)
 
 
-## File structure and naming conventions
-
-- Names should be simple, clear and intuitive
+## File structure and naming
 
 ### Casing
 
@@ -91,17 +67,13 @@ This test desciption is *not* correct. It checks that when the delete button is 
 - `src/resources`
   - Machine readable, hardcoded data (e.g. `ItemTypes`, json data files)
 - `src/common_styles`
-  - css files applied to the whole project
-
-### Special files
-
-- Repos contain a COPYRIGHT or LICENSE and a README file.
+  - style files applied to the whole project
 
 ### Grouping
 
 - Files are grouped by functionality (components) in folders
-- A component folder contains all related code (e.g. js, css, tests). See also: [Jest conventions](https://jestjs.io/docs/en/configuration.html#testregex-string)
-- Snapshots currently need to be in a `__snapshots__` folder next to the tests, but [changes to that are already on master](https://github.com/facebook/jest/issues/1650)
+- A component folder contains all related code (e.g. js, styles, tests). See also: [Jest conventions](https://jestjs.io/docs/en/configuration.html#testregex-string)
+- [Jest snapshot location can be configured in v24+](https://medium.com/c-hive/no-more-snapshots-folders-with-jest-98de26681764)
 - Files can be logically groupped into more folders (e.g. `selectors/LeagueSelector` and `selectors/ItemTypeSelector`)
 
 ### Example project structure
@@ -124,14 +96,12 @@ This test desciption is *not* correct. It checks that when the delete button is 
 │   │   │   ├── App.css
 │   │   │   ├── App.js
 │   │   │   ├── App.test.js
-│   │   │   └── __snapshots__
-│   │   │       └── App.test.js.snap
+│   │   │   └── App.test.js.snap
 │   │   └── Header
 │   │       ├── Header.css
 │   │       ├── Header.js
 │   │       ├── Header.test.js
-│   │       └── __snapshots__
-│   │           └── Header.spec.js.snap
+│   │       └── Header.spec.js.snap
 │   └── utils
 │       ├── testing
 │       │   └── TestHelpers.js
@@ -142,8 +112,3 @@ This test desciption is *not* correct. It checks that when the delete button is 
 
 Examples in the wild:
 - https://github.com/btholt/photo-gallery
-
-
-## Documentation
-
-- The readme gets newcommers up to speed and helps them get the app up & running.

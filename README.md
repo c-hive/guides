@@ -10,6 +10,8 @@ Use your best judgement and make exceptions when needed.
 
 [Style](universal/style.md)
 
+[Way of working](universal/way-of-working.md)
+
 ## React
 
 [Style](react/style.md)

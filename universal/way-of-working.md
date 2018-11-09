@@ -28,5 +28,56 @@ We're currently still in the GitHub universe with every project.
 - CircleCI for GitHub
 - built-in CI for GitLab
 
+### Code quality
+- Linter
+- Coverage
+
+### Deployment platform
+- Heroku
+- GitHub pages
 
 ## CI steps
+
+- test
+- report coverage
+- lint
+- build
+- deploy
+
+## Development workflow
+
+- Work on feature branches
+- Prefix branch with GitHub issue
+- Everything is reviewed by at least 1 person (ideally before merge but that's subject to dev availability)
+- Use "squash and merge"
+- Remove branch on GitHub after merge to keep the repo thin
+
+### Pre-commit hooks
+
+It's a good practice to do "clean" commits where the CI is always expected to pass. It's useful for e.g.
+- to be able to revert to any state of master (depending on the merge strategy this isn't always possible with failing commits)
+- assuring you and others that the work can be continued without having to wait for the CI
+
+One way to force checks before committing is via pre-commit hooks. Nowadays there're libraries that support storing this configuration in the repo.
+
+Run at least `test` and `lint` steps.
+
+### Special branches
+
+- master (production or staging/preview)
+- release (if master is used for staging/preview)
+
+## Design
+
+### Types
+
+- technical design
+- for FE
+  - wireframe design
+  - functional / interaction design
+  - visual design
+
+### Tools
+
+- draw.io - great for diagrams, ok for wireframes
+- balsamiq.cloud - great for wireframes

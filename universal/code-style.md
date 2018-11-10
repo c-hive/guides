@@ -10,6 +10,7 @@ In most general terms: follow Clean Code. This phrase is often thrown around but
 ## Commit messages
 
 - [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) by Chris Beams
+- Use backticks (\`) to refer to `code`
 
 ## Branches
 

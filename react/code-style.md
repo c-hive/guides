@@ -1,4 +1,4 @@
-# React style guide
+# React code style guide
 
 ## Unit tests
 

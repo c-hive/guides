@@ -59,7 +59,7 @@ Library comparisons:
 - [troch/choosing-a-css-in-js-library](https://gist.github.com/troch/c27c6a8cc47b76755d848c6d1204fdaf)
 - [CSS in JS comparison with benchmarks, articles, other resources](https://github.com/tuchk4/awesome-css-in-js)
 
-Out of the many libs the best choice currently seems to be `styled-components`. Pros and cons address this in particular but most apply accros many.
+Out of the many libs the best choice currently seems to be `styled-components` which is also clearly shown in usage trends. Pros and cons address this in particular but most apply accros many.
 
 Pros
 - feature rich (complete SASS features for JS with [polished](https://github.com/styled-components/polished))

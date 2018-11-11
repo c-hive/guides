@@ -1,5 +1,7 @@
 # Styling and CSS
 
+*How should we style our React app?*
+
 This is a huge and controversial topic so we need to be a bit more chatty. It's not obvious that there is (or should be) a one-for-all solution. First we set needs and propose options. Then we break down the evaluation into 3 major topics usually groupped together as "style":
 - [**Behaviour**](#behaviour) (SMACSS state)
 - [**Component appearence**](#component-appearence) (SMACSS module)

@@ -106,7 +106,7 @@ Use either **Preprocessed CSS modules** or **CSS in JS** or **Regular CSS**.
 
 ## Conventions
 
-Despite our efforts there're still some custom conventions we have establish but only a small number of straightforward ones.
+Despite our efforts there're still some custom conventions we have to establish, however now only a small number of straightforward ones.
 
 #### Never interpolate user input with `styled-components`
 
@@ -126,7 +126,7 @@ Component styles are declared in a separate `.styles.js` file using the [`css` h
 
 #### Use SMACSS categories for cross-component styles
 
-[SMACSS categories](https://smacss.com/book/categorizing) provide a practical separation of cocnerns. Module and state categories are covered by the `component.style.js` pattern, however styles that reach accross components (whether because they are global or just affect many components) need a proper place. Place them in `src/common_styles` and use SMACSS catogires for grouping. Applies both to CSS and CSS-in-JS.
+[SMACSS categories](https://smacss.com/book/categorizing) provide a practical separation of concerns. Module and state categories are covered by the `component.style.js` pattern, however styles that reach accross components (whether because they are global or just affect many components) need a proper place. Place them in `src/common_styles` and use SMACSS catogires for grouping. Applies both to CSS and CSS-in-JS.
 
 
 ## CSS-in-JS example
@@ -180,6 +180,7 @@ export default HeaderStyles;
 - [React.js inline style best practices](https://stackoverflow.com/questions/26882177/react-js-inline-style-best-practices/31638988#31638988)
 - [The ultimate CSS battle: Grid vs Flexbox](https://hackernoon.com/the-ultimate-css-battle-grid-vs-flexbox-d40da0449faf)
 - [Comparison os styling variants](https://github.com/styled-components/comparison)
+- [Should I use CSS-in-JS?](https://reactarmory.com/answers/should-i-use-css-in-js)
 
 Things to keep an eye on:
 - https://github.com/styled-components/styled-components/issues/1209

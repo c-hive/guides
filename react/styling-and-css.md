@@ -53,7 +53,7 @@ Cons
 #### CSS in JS
 
 Library comparisons:
-- [Generations / evolution of libs]((https://github.com/streamich/freestyler/blob/master/docs/en/generations.md))
+- [Generations / evolution of libs](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md)
 - [Comparison of libs by Michele Bertoli](https://github.com/MicheleBertoli/css-in-js)
 - [Comparison of libs by Radium](https://github.com/FormidableLabs/radium/tree/905227c122b1775775cf8d82c508cce4179cff08/docs/comparison)
 - [troch/choosing-a-css-in-js-library](https://gist.github.com/troch/c27c6a8cc47b76755d848c6d1204fdaf)

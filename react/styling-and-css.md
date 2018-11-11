@@ -101,7 +101,7 @@ Use **CSS in JS**.
 
 Most benfits of CSS-in-JS don't apply here. Testing these is not in the scope of unit testing. For layouts best practices are estiablished and there're many libraries abstracting away most of the CSS work. For global styles scoping is not an issue, they tend to be more straightforward and wouldn't make use of the conventions of CSS-in-JS. CSS-in-JS can be used to keep the way of styling unified, but Preprocessed CSS modules and sometimes even regular CSS can meet all needs.
 
-Use either **Preprocessed CSS modules**, **CSS in JS** or **Regular CSS**.
+Use either **Preprocessed CSS modules** or **CSS in JS** or **Regular CSS**.
 
 
 ## Conventions

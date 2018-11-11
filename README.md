@@ -14,6 +14,10 @@ Use your best judgement and make exceptions when needed.
 
 ## React
 
-[Code style](react/code-style.md)
+[File structure and naming](react/file-structure-naming.md)
+
+[Styling and CSS](react/styling-and-css.md)
+
+[Testing](react/testing.md)
 
 [Way of working](react/way-of-working.md)

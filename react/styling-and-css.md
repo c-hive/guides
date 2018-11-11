@@ -48,7 +48,7 @@ Cons
 - technical concerns rest on you
 - conventions, best practices not enforced
 - requires conventions to be viable for bigger projects, there're many of them with no clear winner (e.g. [BEM](http://getbem.com/introduction/), OOCSS, SMACSS, SUITCSS, Atomic, [SASS-Guidelines](https://sass-guidelin.es/))
-- conventions are completely separate from other project conventions (e.g. naming, structure) and have similar complexity (relatively high cost of entry)
+- conventions are completely separate from other project conventions (e.g. naming, structure) and have similar complexity, high cost of entry
 
 #### CSS in JS
 

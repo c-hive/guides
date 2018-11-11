@@ -90,7 +90,7 @@ This test desciption is *not* correct. It checks that when the delete button is 
 ├── README.md
 ├── src
 │   ├── common_styles
-│   │   └── colors.css
+│   │   └── layout.css
 │   ├── components
 │   │   ├── App
 │   │   │   ├── App.css

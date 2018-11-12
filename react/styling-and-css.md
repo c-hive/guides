@@ -176,7 +176,7 @@ export default HeaderStyles;
 
 ## Further reading
 
-- ["Why We Use Styled Components at Decisiv"](https://medium.com/@_alanbsmith/why-we-use-styled-components-at-decisiv-a8ac6e1507ac)
+- [Why We Use Styled Components at Decisiv](https://medium.com/@_alanbsmith/why-we-use-styled-components-at-decisiv-a8ac6e1507ac)
 - [React.js inline style best practices](https://stackoverflow.com/questions/26882177/react-js-inline-style-best-practices/31638988#31638988)
 - [The ultimate CSS battle: Grid vs Flexbox](https://hackernoon.com/the-ultimate-css-battle-grid-vs-flexbox-d40da0449faf)
 - [Comparison os styling variants](https://github.com/styled-components/comparison)

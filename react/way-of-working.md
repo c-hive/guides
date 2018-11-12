@@ -3,7 +3,7 @@
 ## Tools
 
 ### Code quality:
-- ESLint for linting
+- ESLint and Stylelint for linting
 - Prettier for formatting
 - Codecov for coverage
 

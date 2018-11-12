@@ -93,7 +93,7 @@ Use **CSS in JS**.
 
 #### Component appearence
 
-CSS still presents a big brawback on the convention and entry cost part.  CSS in JS handles the conventions of component appearence well. It has multiple applicable cons, but they can be addressed (see [Conventions](#conventions)).
+CSS still presents a big drawback on the convention and entry cost part.  CSS in JS handles the conventions of component appearence well. It has multiple applicable cons, but they can be addressed (see [Conventions](#conventions)).
 
 Use **CSS in JS**.
 

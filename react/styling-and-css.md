@@ -99,7 +99,7 @@ Use **CSS in JS**.
 
 #### Cross-component appearence
 
-Most benfits of CSS-in-JS don't apply here. Testing these is not in the scope of unit testing. For layouts best practices are estiablished and there're many libraries abstracting away most of the CSS work. For global styles scoping is not an issue, they tend to be more straightforward and wouldn't make use of the conventions of CSS-in-JS. CSS-in-JS can be used to keep the way of styling unified and get the benefit of other, more advanced featured (e.g. server side rendering, critical CSS) but Preprocessed CSS modules and sometimes even regular CSS can also meet all basic needs.
+Testing these is not in the scope of unit testing. For layouts best practices are estiablished and there're many libraries abstracting away most of the CSS work. Scoping is not an issue for global styles. They also tend to be more straightforward and wouldn't make use of the conventions of CSS-in-JS. CSS-in-JS still can be used to keep the way of styling unified and get the benefit of other, more advanced features such as server side rendering or critical CSS. However Preprocessed CSS modules and sometimes even regular CSS can also meet basic needs.
 
 Use either **CSS in JS** or **Preprocessed CSS modules** or **Regular CSS**.
 

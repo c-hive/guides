@@ -1,6 +1,6 @@
 # C-Hive Guides
 
-### Collecion of style and way-of-working guides for languages and frameworks we work with.
+### Guides for code style, way of working and other technical concerns
 
 Any useful rule is fine as long as it's understood by everyone in the team.
 

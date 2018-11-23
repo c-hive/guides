@@ -45,4 +45,4 @@ This test desciption is *not* correct. It checks that when the delete button is 
 
 - Conditionals (both sides)
 - State and its changes
-- What should be rendered (e.g. `expect(wrapper.find(MyComponent)).toHaveLength(1);`)
+- Rendered components (e.g. `expect(wrapper.find(MyComponent)).toHaveLength(1);`)

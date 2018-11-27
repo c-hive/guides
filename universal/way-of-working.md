@@ -1,38 +1,52 @@
 # Way of Working
 
+Deploying to GH from GL:
+GH: deploy keys
+GL: https://docs.gitlab.com/ee/ci/ssh_keys/
+
 ## Tools
 
-These are configured for each project. They might differ on project-to-project basis.
+They might differ on project-to-project basis but all should be present in some form.
 
-GitHub is better for open source projects because of reach. GitLab seems better for private projects because of the bigger selection of tightly integrated services (therefore less configuration, security point of failures) and pricing.
+### Development platform
 
-We're currently still in the GitHub universe with every project.
+#### Open source
 
-#### Development platform
-- GitHub
-- GitLab
+[GitHub](https://github.com/) has the best reach and is the go-to platform for open source projects.
 
-#### Issue tracking
+#### Private
+
+Integrating private projects with various third party services (e.g CI, code quality tools) poses additional security risk. Self-hosting them requires additional effort for each tool and they might not even be avaialble as self-hosted. [GitLab](https://gitlab.com/) on the other hand has a good selection of tightly integrated services. By default they all work within GitLab reducing security point of failures and they are all integrated into the same runtime environment (GitLab Runner) which makes it easier to set them up as self hosted. Arguably it also has the best price/value.
+
+#### Interoperability between GitHub and GitLab
+
+Migrating to GitLab is well supported. PRs, issues, tags will be kept. It also supports [bidirectional mirroring](https://docs.gitlab.com/ee/workflow/repository_mirroring.html).
+
+Migrating to GitHub is restricted to importing the repository.
+
+One use case to consider is to have private development on GitLab, but deploy to GitHub Pages and handle external issues also on GitHub to reach more people. This can be achieved by [using a GitHub deploy key in GitLab CI](https://docs.gitlab.com/ee/ci/ssh_keys/).
+
+### Issue tracking
 - Dev platform's issue tracker
 - Keep decisions and (excerpts of) technical discussion in the issues
 
-#### Time tracking
+### Time tracking
 - Record time spent on the issue before closing, dev platform might also offer features for it
-- Record total time spent (also referencing issues) in a shared space, optionally [Clockify](https://clockify.me/)
+- Record total time spent (also referencing topic) in a shared space, optionally [Clockify](https://clockify.me/)
 
-#### Communication:
+### Communication:
 - Slack
-- Secondary, mainly for voice: discord, facebook
+- Secondary, mainly for voice: discord
 
-#### CI
+### CI
 - CircleCI for GitHub
 - built-in CI for GitLab
 
-#### Code quality
+### Code quality
 - Linter
 - Coverage
 
-#### Deployment platform
+### Deployment platform
 - Heroku
 - GitHub pages
 
@@ -65,7 +79,7 @@ Run at least `test` and `lint` steps.
 ### Special branches
 
 - master (production or staging/preview)
-- release (if master is used for staging/preview)
+- release or tags on master (if master is used for staging/preview)
 
 ## Design
 
@@ -79,5 +93,6 @@ Run at least `test` and `lint` steps.
 
 ### Tools
 
-- draw.io - great for diagrams, ok for wireframes
-- balsamiq.cloud - great for wireframes
+- draw.io - diagrams, wireframes
+- balsamiq.cloud - wireframes
+- figma - visual

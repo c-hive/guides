@@ -3,9 +3,10 @@
 #### The folder structure is based on the **MVC** architecture.
 
 - ***M**odel*:
-	- Database definitions, e.g. schemas and models.
+	- Database definitions.
+	- Schemas, models.
 - ***V**iew*:
-	- Consists of view templates, such as `.ejs` or `.html`.
+	- Consists of view templates, such as `.ejs` or `.html` extensions.
 	- The appropriate one of the templates will be represented to the user when an endpoint is being visited.
 - ***C**ontroller*: 
 	- Communicates between the model and the view.
@@ -14,7 +15,7 @@
 #### Additional folders
 - *configs*: 
 	- Configuration files.
-	- Usually variables, JSON files and so forth.
+	- Usually JSON structured files or exported variables.
 	- For example `EnvironmentVariables.js`, that provides the essential variables for the initialization process.
 - *routes*:
 	- *Express* routes.

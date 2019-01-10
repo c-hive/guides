@@ -2,7 +2,7 @@
 
 ##### File naming
 
-The following file naming convention is a suggestion:
+The following file naming convention is just a suggestion:
 - *controllers:* <file_name>.**controller**.js,
 - *models:* <file_name>.**model**.js,
 - *routes:* <file_name>.**route**.js.

@@ -1,6 +1,6 @@
 # Naming
 
-##### File naming
+#### File naming
 
 Specific file naming conventions:
 - *controllers:* <file_name>.**controller**.js,
@@ -8,6 +8,6 @@ Specific file naming conventions:
 - *routes:* <file_name>.**route**.js.
 - *views:* <file_name>.**view**.html / <file_name>.**view**.ejs
 
-##### Casing
+#### Casing
 
 Additional folders, files, functions and so forth use the usual **UpperCamelCase**.

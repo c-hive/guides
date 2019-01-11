@@ -2,16 +2,12 @@
 
 ##### File naming
 
-The following file naming convention is just a suggestion:
+Specific file naming conventions:
 - *controllers:* <file_name>.**controller**.js,
 - *models:* <file_name>.**model**.js,
 - *routes:* <file_name>.**route**.js.
+- *views:* <file_name>.**view**.html / <file_name>.**view**.ejs
 
 ##### Casing
 
-- There are three different approaches to declare variable and file names.
-- Which one is preferable for you?
-    - *snake_case*,
-    - *lowerCamelCase*,
-    - *UpperCamelCase*.
-- I'd stay with the *UpperCamelCase* in the backend both for the file and variable names, but it depends on you as well.
+Additional folders, files, functions and so forth use the usual **UpperCamelCase**.

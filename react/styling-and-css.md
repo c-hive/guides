@@ -93,13 +93,13 @@ Use **CSS in JS**.
 
 #### Component appearence
 
-CSS still presents a big brawback on the convention and entry cost part.  CSS in JS handles the conventions of component appearence well. It has multiple applicable cons, but they can be addressed (see [Conventions](#conventions)).
+CSS still presents a big drawback on the convention and entry cost part.  CSS in JS handles the conventions of component appearence well. It has multiple applicable cons, but they can be addressed (see [Conventions](#conventions)).
 
 Use **CSS in JS**.
 
 #### Cross-component appearence
 
-Most benfits of CSS-in-JS don't apply here. Testing these is not in the scope of unit testing. For layouts best practices are estiablished and there're many libraries abstracting away most of the CSS work. For global styles scoping is not an issue, they tend to be more straightforward and wouldn't make use of the conventions of CSS-in-JS. CSS-in-JS can be used to keep the way of styling unified and get the benefit of other, more advanced featured (e.g. server side rendering, critical CSS) but Preprocessed CSS modules and sometimes even regular CSS can also meet all basic needs.
+Testing this is not in the scope of unit testing. For layouts best practices are estiablished and there're many libraries abstracting away most of the CSS work. Scoping is not an issue for global styles. They also tend to be more straightforward and wouldn't make use of the conventions of CSS-in-JS. CSS-in-JS still can be used to keep the way of styling unified and get the benefit of other, more advanced features such as server side rendering or critical CSS. However Preprocessed CSS modules and sometimes even regular CSS can also meet basic needs.
 
 Use either **CSS in JS** or **Preprocessed CSS modules** or **Regular CSS**.
 
@@ -115,14 +115,14 @@ Despite our efforts there're still some custom conventions we have to establish,
 
 #### Store CSS-in-JS styles in separate files
 
-It is very often the case that CSS-in-JS is presented with examples where it is part and parcel of the components. This gives the wrong idea and (understandably) scraes off poeple. Separating the concerns of style and business logic is encouraged on many levels. Starting on component level (see: ["Presentational and Container Components" by Dan Abramov](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)) reaching down to `styled-components` specifics (see: ["Separate your code with Styled Components" by Sara Vieira](https://blog.cloudboost.io/separate-your-code-with-styled-components-ec4fd1ee3ef8), ["Get Organized with Styled-Components" by Jeremy Davis](https://www.toptal.com/javascript/styled-components-library)).
+It is very often the case that CSS-in-JS is presented with examples where it is part and parcel of the components. This gives the wrong idea and (understandably) scares off poeple. Separating the concerns of style and business logic is encouraged on many levels. Starting on component level (see: ["Presentational and Container Components" by Dan Abramov](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)) reaching down to `styled-components` specifics (see: ["Separate your code with Styled Components" by Sara Vieira](https://blog.cloudboost.io/separate-your-code-with-styled-components-ec4fd1ee3ef8), ["Get Organized with Styled-Components" by Jeremy Davis](https://www.toptal.com/javascript/styled-components-library)).
 
 Our approach is inspired by said articles, aiming to provide a clear and generic separation between styles and components. The main difference being that we don't allow styled components to be defined in style files. This in turn:
 - makes the separation abundantly clear
 - makes the use of styles explicit in the component files
 - gets rid of the differentiation between the props and non-props versions
 
-Component styles are declared in a separate `.styles.js` file using the [`css` helper function](https://www.styled-components.com/docs/api#css).
+Component styles are declared in a separate `.styles.js` file using the [`css` helper function](https://www.styled-components.com/docs/api#css). See the [example](#css-in-js-example) below.
 
 #### Use SMACSS categories for cross-component styles
 
@@ -176,7 +176,7 @@ export default HeaderStyles;
 
 ## Further reading
 
-- ["Why We Use Styled Components at Decisiv"](https://medium.com/@_alanbsmith/why-we-use-styled-components-at-decisiv-a8ac6e1507ac)
+- [Why We Use Styled Components at Decisiv](https://medium.com/@_alanbsmith/why-we-use-styled-components-at-decisiv-a8ac6e1507ac)
 - [React.js inline style best practices](https://stackoverflow.com/questions/26882177/react-js-inline-style-best-practices/31638988#31638988)
 - [The ultimate CSS battle: Grid vs Flexbox](https://hackernoon.com/the-ultimate-css-battle-grid-vs-flexbox-d40da0449faf)
 - [Comparison os styling variants](https://github.com/styled-components/comparison)

@@ -21,3 +21,7 @@ Use your best judgement and make exceptions when needed.
 [Testing](react/testing.md)
 
 [Way of working](react/way-of-working.md)
+
+## Etc
+
+[Social media](etc/social-media.md)

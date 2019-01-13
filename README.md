@@ -12,6 +12,8 @@ Use your best judgement and make exceptions when needed.
 
 [Way of working](universal/way-of-working.md)
 
+[Testing](universal/testing.md)
+
 ## React
 
 [File structure and naming](react/file-structure-naming.md)

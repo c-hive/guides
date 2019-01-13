@@ -1,6 +1,6 @@
 # C-Hive Guides
 
-### Guides for code style, way of working and other technical concerns
+### Guides for code style, way of working and other professional concerns
 
 Any useful rule is fine as long as it's understood by everyone in the team.
 

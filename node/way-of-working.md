@@ -7,7 +7,7 @@
 - Istanbul for coverage.
 
 ### Testing
-- Mocha
-- Chai
-- Sinon
-- Supertest
+- Mocha: testing framework.
+- Chai: assertion library.
+- Sinon: stubs, spies and mocks.
+- Supertest: mainly used for testing HTTP requests. 

@@ -34,6 +34,6 @@ An example to demonstrate the regular structure of a component:
 ├── dummy
 │   ├── dummy.js # functionalities
 │   ├── dummy.routes.js # component related API endpoints
-│	  ├── dummy.test.js # test suites
+│   ├── dummy.test.js # test suites
 │   ├── index.js # export functionalities
 ```

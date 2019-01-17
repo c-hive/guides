@@ -8,6 +8,9 @@ GL: https://docs.gitlab.com/ee/ci/ssh_keys/
 
 They might differ on project-to-project basis but all should be present in some form.
 
+### Personal
+- Grammarly or something similar for correct spelling and grammar.
+
 ### Development platform
 
 #### Open source

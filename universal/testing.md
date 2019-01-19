@@ -52,4 +52,4 @@ Best practices include
 - resetting common storages between tests (e.g. DB, locale storage)
 - resetting mocks between tests
 
-In practice it can be enforced by running test isolated or in a randomized order.
+It should be enforced by running test isolated or in a randomized order.

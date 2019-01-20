@@ -42,3 +42,14 @@ describe ('delete button, () => {
 });
 ```
 This test desciption is *not* correct. It checks that when the delete button is clicked on an item, it removes *an* item, not necessarily *the* item. Tests descriptions are there so that we don't have to look at the tests themselves, but that's only the case if they're accurate. It might be fine to have a test like the above, but the description should read e.g. `it descreases the number of items by 1`.
+
+### Independence of tests
+
+Tests should always be independent of each other.
+
+Best practices include
+- using per test case context setups (i.e. before each, not before all)
+- resetting common storages between tests (e.g. DB, locale storage)
+- resetting mocks between tests
+
+It should be enforced by running test isolated or in a randomized order.

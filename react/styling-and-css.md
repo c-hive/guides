@@ -120,7 +120,7 @@ It is very often the case that CSS-in-JS is presented with examples where it is 
 Our approach is inspired by said articles, aiming to provide a clear and generic separation between styles and components. The main difference being that we don't allow styled components to be defined in style files. This in turn:
 - makes the separation abundantly clear
 - makes the use of styles explicit in the component files
-- gets rid of the differentiation between the props and non-props versions
+- gets rid of the [differentiation between the props and non-props versions](https://gist.github.com/SaraVieira/972bf23f0f2d2852dd4223f7a906eeb8)
 
 Component styles are declared in a separate `.styles.js` file using the [`css` helper function](https://www.styled-components.com/docs/api#css). See the [example](#css-in-js-example) below.
 
@@ -145,21 +145,22 @@ Component styles are declared in a separate `.styles.js` file using the [`css` h
 Header.js
 ```js
 import styled from 'styled-components';
+import { headerDivStyle } from './Header.style';
 
-import HeaderStyles from './style.js';
+const header = () => {
+  const styledHeader = styled.div`${headerDivStyle};`;
 
-const Header = () => {
-  // ...
+  return <styledHeader />;
 };
 
-export default styled(Header)`${HeaderStyles};`;
+export default header;
 ```
 
 Header.style.js
 ```js
 import { css } from 'styled-components';
 
-const HeaderStyles = css`
+export const headerDivStyle = css`
   margin: 0.5rem 1rem;
   width: 11rem;
   background: transparent;
@@ -170,8 +171,6 @@ const HeaderStyles = css`
     color: palevioletred;
   `}
 `;
-
-export default HeaderStyles;
 ```
 
 ## Further reading

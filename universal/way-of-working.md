@@ -1,15 +1,11 @@
 # Way of Working
 
-Deploying to GH from GL:
-GH: deploy keys
-GL: https://docs.gitlab.com/ee/ci/ssh_keys/
-
 ## Tools
 
 They might differ on project-to-project basis but all should be present in some form.
 
 ### Personal
-- Grammarly or something similar for correct spelling and grammar.
+Grammarly or something similar for correct spelling and grammar.
 
 ### Development platform
 

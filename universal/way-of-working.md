@@ -1,5 +1,9 @@
 # Way of Working
 
+## Requirements
+
+- [RFC memo about key words used to Indicate Requirement Levels](https://tools.ietf.org/html/rfc2119)
+
 ## Tools
 
 They might differ on project-to-project basis but all should be present in some form.

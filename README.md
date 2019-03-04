@@ -1,6 +1,6 @@
 # C-Hive Guides
 
-### Guides for code style, way of working and other professional concerns
+### Guides for code style, way of working and other development concerns
 
 Any useful rule is fine as long as it's understood by everyone in the team.
 
@@ -13,6 +13,8 @@ Use your best judgement and make exceptions when needed.
 [Way of working](universal/way-of-working.md)
 
 [Testing](universal/testing.md)
+
+[Library development](universal/lib.md)
 
 ## React
 

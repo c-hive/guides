@@ -34,6 +34,10 @@ Use your best judgement and make exceptions when needed.
 
 [Way of working](node/way-of-working.md)
 
+## Ruby
+
+[Gem development](ruby/gem.md)
+
 ## Etc
 
 [Social media](etc/social-media.md)

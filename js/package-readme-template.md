@@ -37,4 +37,4 @@ This project follows [C-Hive guides](https://github.com/c-hive/guides) for code 
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The package is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

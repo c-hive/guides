@@ -144,13 +144,10 @@ Component styles are declared in a separate `.styles.js` file using the [`css` h
 
 Header.js
 ```js
-import styled from 'styled-components';
-import { headerDivStyle } from './Header.style';
+import { HeaderDivStyle } from './Header.style';
 
 const header = () => {
-  const styledHeader = styled.div`${headerDivStyle};`;
-
-  return <styledHeader />;
+  return <HeaderDivStyle />;
 };
 
 export default header;
@@ -158,9 +155,9 @@ export default header;
 
 Header.style.js
 ```js
-import { css } from 'styled-components';
+import styled from 'styled-components';
 
-export const headerDivStyle = css`
+export const HeaderDivStyle = styled.div`
   margin: 0.5rem 1rem;
   width: 11rem;
   background: transparent;

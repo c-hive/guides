@@ -16,7 +16,11 @@ Use your best judgement and make exceptions when needed.
 
 [Library development](universal/lib.md)
 
-## React
+## JS
+
+[Package development](js/package.md)
+
+### React
 
 [File structure and naming](react/file-structure-naming.md)
 
@@ -26,7 +30,7 @@ Use your best judgement and make exceptions when needed.
 
 [Way of working](react/way-of-working.md)
 
-## Node.js
+### Node.js
 
 [File structure and naming](node/file-structure-naming.md)
 

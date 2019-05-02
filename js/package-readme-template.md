@@ -15,7 +15,7 @@ Status and support
 
 *You are viewing the README of version [v1.0.0](https://github.com/your_username/your_package/releases/tag/v1.0.0). You can find other releases [here](https://github.com/your_username/your_package/releases).*
 
-*You are viewing the README of the development version. You can find the README of the latest release (v1.0.0) [here](https://github.com/your_username//your_package/releases/tag/v1.0.0).*
+*You are viewing the README of the development version. You can find the README of the latest release (v1.0.0) [here](https://github.com/your_username/your_package/releases/tag/v1.0.0).*
 <!--- Version informartion end -->
 
 | Branch | Status |

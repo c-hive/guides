@@ -20,6 +20,8 @@ Use your best judgement and make exceptions when needed.
 
 [Package development](js/package.md)
 
+[Miscellaneous](js/misc.md)
+
 ### React
 
 [File structure and naming](react/file-structure-naming.md)
@@ -37,6 +39,8 @@ Use your best judgement and make exceptions when needed.
 [Testing](node/testing.md)
 
 [Way of working](node/way-of-working.md)
+
+[Miscellaneous](node/misc.md)
 
 ## Ruby
 

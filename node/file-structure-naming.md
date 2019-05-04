@@ -1,4 +1,4 @@
-# File structure and naming
+# Node.js / File structure and naming
 
 - The [Express generator](http://expressjs.com/en/starter/generator.html) creates a familiar skeleton.
 - There's [no consensus](https://stackoverflow.com/a/47945694/2771889) on the right structure (e.g. [1](https://www.infoworld.com/article/3204205/node-js/7-keys-to-structuring-your-nodejs-app.html), [2](https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial/)) but it doesn't matter from the framework's point of view.

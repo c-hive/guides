@@ -1,4 +1,4 @@
-# Styling and CSS
+# React / Styling and CSS
 
 *How should we style our React app?*
 

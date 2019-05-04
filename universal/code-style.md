@@ -1,4 +1,4 @@
-# Universal code style guide
+# Code style guide
 
 
 ## Code style

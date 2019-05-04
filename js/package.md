@@ -1,4 +1,4 @@
- Package development
+# Javascript / Package development
 
 - [README template](package-readme-template.md)
 

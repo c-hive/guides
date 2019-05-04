@@ -1,4 +1,4 @@
-# File structure and naming
+# React / File structure and naming
 
 ## Example project structure
 

@@ -28,7 +28,7 @@
 │   │   ├── users.test.js
 │   │   └── index.js
 │   ├── utils
-│   │   └─── response-parser.js
+│   │   └─── response-parser
 │   │        ├── response-parser.js
 │   │        ├── response-parser.test.js
 │   │        └── index.js

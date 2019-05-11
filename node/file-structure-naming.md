@@ -11,7 +11,6 @@
 
 ```
 .
-
 ├── app
 │   ├── db
 │   │   └── user
@@ -27,11 +26,12 @@
 │   │   ├── users.routes.js
 │   │   ├── users.test.js
 │   │   └── index.js
-│   ├── utils
-│   │   └─── response-parser
-│   │        ├── response-parser.js
-│   │        ├── response-parser.test.js
-│   │        └── index.js
+│   └── utils
+│       └─── response-parser
+│            ├── response-parser.js
+│            ├── response-parser.test.js
+│            └── index.js
+├── app.js
 ├── config
 │   └── external-service-config.js
 ├── doc

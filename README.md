@@ -14,6 +14,8 @@ Use your best judgement and make exceptions when needed.
 
 [Testing](universal/testing.md)
 
+[Error handling](universal/error-handling.md)
+
 [Library development](universal/lib.md)
 
 ## JS

@@ -1,4 +1,4 @@
-# Javascript / Error handling
+# Universal / Error handling
 
 An error can be categorized by many criteria, whether
 - it's **critical software** or it's **non-critical software**

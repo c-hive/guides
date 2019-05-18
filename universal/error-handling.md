@@ -90,9 +90,9 @@ GOOD
 
 ```
 if (err) {
-  if (err.name === "MongoNetworkError") {
-   console.error("Incorrect MongoDB connection URI");
-   handleNoDb();
+  if (err.name === "SpecificError") {
+   console.error("Description of the error");
+   handleError();
   } else {
     throw(err);
   }
@@ -103,7 +103,7 @@ BAD
 
 ```
 if (err) {
-  console.error("Incorrect MongoDB connection URI");
+  console.error("Description of the error");
 }
 ```
 

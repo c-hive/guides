@@ -28,11 +28,11 @@ Often happens on the frontend.
 
 - Example: a form validation failed on post. The validation error is shown, the field is higlighted and the previous value may or may not be removed.
 
-- Example: worst case, some unexpected error happens. A generic error is shown: "Something unexpected happened, save your changes offline and [reload the page]()."
+- Example: worst case, some unexpected error happens. A generic error is shown: "Something unexpected happened, save your changes offline and [reload the page](error-handling.md)."
 
 #### In certain (specifically identified) cases the user may not be notified.
 
-- Example: an async fethcing keeps the website up to date with other changes but it fails. This may fail silently in the bakckground (but must be handled explicitly). Fallback strategy could be retrying a few times and, if it keeps failing, showing a generic error to the user: "The page is running with limited functionality, [reloading the page]() might help resolve it."
+- Example: an async fethcing keeps the website up to date with other changes but it fails. This may fail silently in the bakckground (but must be handled explicitly). Fallback strategy could be retrying a few times and, if it keeps failing, showing a generic error to the user: "The page is running with limited functionality, [reloading the page](error-handling.md) might help resolve it."
 
 #### Expose the minimal necessary information to the user about the error.
 

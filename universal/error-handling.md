@@ -92,6 +92,7 @@ GOOD
 if (err) {
   if (err.name === "MongoNetworkError") {
    console.error("Incorrect MongoDB connection URI");
+   handleNoDb();
   } else {
     throw(err);
   }

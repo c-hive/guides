@@ -3,7 +3,7 @@
 An error can be categorized by many criteria, whether
 - it's **critical software** or it's **non-critical software**
 - it's **user facing** or **not user facing**
-- there **is a fallback** ir **there is no fallback**
+- there **is a fallback** or **there is no fallback**
 - it's on the **frontend** or **backend**
 - the code is **synchronous** or **asynchronous**
 - a certain language or library is used
@@ -32,12 +32,12 @@ Often happens on the frontend.
 
 #### In certain (specifically identified) cases the user may not be notified.
 
-- Example: an async fethcing keeps the website up to date with other changes but it fails. This may fail silently in the bakckground (but must be handled explicitly). Fallback strategy could be retrying a few times and, if it keeps failing, showing a generic error to the user: "The page in running with limited functionality, [reloading the page]() might help resolve it."
+- Example: an async fethcing keeps the website up to date with other changes but it fails. This may fail silently in the bakckground (but must be handled explicitly). Fallback strategy could be retrying a few times and, if it keeps failing, showing a generic error to the user: "The page is running with limited functionality, [reloading the page]() might help resolve it."
 
 #### Expose the minimal necessary information to the user about the error.
 
 - Example: GOOD: "Something unexpected happened", BAD: "JSON.parseError"
-- Example: GOOD: "The page in running with limited functionality", BAD: "XYZ feature is not available"
+- Example: GOOD: "The page is running with limited functionality", BAD: "XYZ feature is not available"
 
 ## Not user facing error
 

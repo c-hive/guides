@@ -47,14 +47,14 @@ Often happens on the backend. In certain cases a generic fallback strategy shoul
 
 GOOD
 
-```
+```js
 thisMightThrow();
 // ...
 ```
 
 BAD
 
-```
+```js
 try {
   thisMightThrow();
 }
@@ -68,7 +68,7 @@ catch (err) {
 
 GOOD
 
-```
+```js
 function notifyNewUser(user) {
   if (!user) throw("User doesn't exist");
 }
@@ -76,7 +76,7 @@ function notifyNewUser(user) {
 
 BAD
 
-```
+```js
 function notifyUser(user) {
   if (!user) return null;
 }
@@ -88,7 +88,7 @@ function notifyUser(user) {
 
 GOOD
 
-```
+```js
 if (err) {
   if (err.name === "SpecificError") {
    console.error("Description of the error");
@@ -101,7 +101,7 @@ if (err) {
 
 BAD
 
-```
+```js
 if (err) {
   console.error("Description of the error");
 }
@@ -111,7 +111,7 @@ if (err) {
 
 GOOD
 
-```
+```js
 if (err) {
   console.error("User couldn't be created");
   throw(err);
@@ -120,7 +120,7 @@ if (err) {
 
 BAD
 
-```
+```js
 if (err) {
   throw new Error("User couldn't be created - " + err);
 }
@@ -130,7 +130,7 @@ if (err) {
 
 GOOD
 
-```
+```js
 if (err) {
   if (err typeof RecordNotFound) {
     res.status(404);
@@ -143,7 +143,7 @@ if (err) {
 
 BAD
 
-```
+```js
 if (err) {
   return res.status(400);
 }

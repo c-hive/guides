@@ -2,13 +2,13 @@
 
 An error can be categorized by many criteria, whether
 - it's **critical software** or it's **non-critical software**
-- it's **user facing** or **not user facing**
+- it's **user facing** or **developer facing**
 - there **is a fallback** or **there is no fallback**
 - it's on the **frontend** or **backend**
 - the code is **synchronous** or **asynchronous**
-- a certain language or library is used
+- a certain language or library is used (specific guides: [Javascript](../js/error-handling.md))
 
-These are general rules aimed to help making a decision about how to handle certain errors. For errors texts refer to the [wording guideline](https://github.com/c-hive/guides/issues/2).
+These are general rules aimed to help making a decision about how to handle certain errors. For errors texts refer to the [wording guideline](https://github.com/c-hive/guides/issues/2). Also check the [Javascript error handling](../js/error-handling.md) guide.
 
 ## Critical software
 
@@ -34,14 +34,18 @@ Often happens on the frontend.
 
 - Example: an async fethcing keeps the website up to date with other changes but it fails. This may fail silently in the bakckground (but must be handled explicitly). Fallback strategy could be retrying a few times and, if it keeps failing, showing a generic error to the user: "The page is running with limited functionality, [reloading the page](error-handling.md) might help resolve it."
 
-#### Expose the minimal necessary information to the user about the error.
+#### Expose the minimal necessary information.
 
 - Example: GOOD: "Something unexpected happened", BAD: "JSON.parseError"
 - Example: GOOD: "The page is running with limited functionality", BAD: "XYZ feature is not available"
 
-## Not user facing error
+## Developer facing error
 
 Often happens on the backend. In certain cases a generic fallback strategy should be implemented (e.g. retry).
+
+#### Expose as much information as possbile.
+
+## Best practices and anti-patterns
 
 #### Fail hard unless there's a fallback strategy
 
@@ -49,7 +53,7 @@ GOOD
 
 ```js
 thisMightThrow();
-// ...
+// continue...
 ```
 
 BAD
@@ -61,7 +65,7 @@ try {
 catch (err) {
   console.error(err);
 }
-// ...
+// continue...
 ```
 
 #### Fail early
@@ -82,29 +86,34 @@ function notifyUser(user) {
 }
 ```
 
-## Best practices and anti-patterns
+#### Make sure the right error is being handled
 
-#### Only handle specific errors
+And not every possible error.
 
 GOOD
 
 ```js
-if (err) {
-  if (err.name === "SpecificError") {
-   console.error("Description of the error");
-   handleError();
+updateUser(err => {
+  if (!err) return;
+
+  if (err.name === "UserNotFound") {
+    console.error("Cannot update user", err);
+    handleUserNotFound();
   } else {
-    throw(err);
-  }
-}
+    console.error("Description of the error", err);
+  };
+};
 ```
 
 BAD
 
 ```js
-if (err) {
-  console.error("Description of the error");
-}
+updateUser(err => {
+  if (!err) return;
+
+  console.error("Cannot update user", err);
+  handleUserNotFound();
+};
 ```
 
 #### Make sure no information is lost from the original error
@@ -112,18 +121,39 @@ if (err) {
 GOOD
 
 ```js
-if (err) {
-  console.error("User couldn't be created");
-  throw(err);
+createUser(err => {
+  if (err) console.error("User couldn't be created", err);
+};
+```
+
+GOOD
+
+```js
+class CustomError extends Error {
+  constructor(error) {
+    // a proper copy constructor
+  }
 }
+// ...
+createUser(err => {
+  if (err) throw(new CustomError(err));
+};
 ```
 
 BAD
 
 ```js
-if (err) {
-  throw new Error("User couldn't be created - " + err);
-}
+createUser(err => {
+  if (err) console.error("Cannot create user");
+};
+```
+
+BAD
+
+```js
+createUser(err => {
+  if (err) throw new CannotCreateUserError();
+};
 ```
 
 #### Use proper error codes

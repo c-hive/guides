@@ -15,5 +15,3 @@ Packages [only include](https://docs.npmjs.com/misc/developers#keeping-files-out
   ],
 }
 ```
-
-The source code is included as-is, it is [not transpiled or minified](https://github.com/flexdinesh/npm-module-boilerplate/issues/5).

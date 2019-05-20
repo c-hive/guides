@@ -33,7 +33,7 @@ new Promise(function(resolve, reject) {
 
 #### Throw Error objects
 
-Otherwise debuggning information is lost.
+Otherwise debugging information is lost.
 
 GOOD
 

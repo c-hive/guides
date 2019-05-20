@@ -12,6 +12,7 @@
 ```
 .
 ├── app
+│   ├── errors
 │   ├── db
 │   │   └── user
 │   │       ├── user.js

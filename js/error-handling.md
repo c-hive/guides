@@ -43,7 +43,7 @@ class UserError extends Error {
 }
 ```
 
-#### Pass additional information to the error message
+#### Pass additional, useful information along with the error message
 
 GOOD
 

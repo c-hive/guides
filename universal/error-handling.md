@@ -74,7 +74,7 @@ GOOD
 
 ```js
 function notifyNewUser(user) {
-  if (!user) throw("User doesn't exist");
+  if (!user) throw "User doesn't exist";
 }
 ```
 
@@ -136,7 +136,7 @@ class CustomError extends Error {
 }
 // ...
 createUser(err => {
-  if (err) throw(new CustomError(err));
+  if (err) throw new CustomError(err);
 };
 ```
 
@@ -164,9 +164,9 @@ GOOD
 if (err) {
   if (err typeof RecordNotFound) {
     res.status(404);
-    throw(err);
+    throw err;
   } else {
-    throw(err);
+    throw err;
   }
 }
 ```

@@ -2,6 +2,29 @@
 
 ## Best practices and anti-patterns
 
+#### A practical example of writing custom error classes
+
+GOOD
+
+```js
+class ExampleError extends Error {
+  constructor(...args) {
+    super(...args);
+
+    // Ensure that the error constructor isn't included in the stack trace.
+    Error.captureStackTrace(this, ExampleError);
+
+    this.name = this.constructor.name;
+  }
+}
+```
+
+BAD
+
+```js
+class ExampleError extends Error {}
+```
+
 #### Rejected Promises must always be catched and at least logged
 
 Otherwise information might be lost.

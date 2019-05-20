@@ -25,6 +25,50 @@ BAD
 class ExampleError extends Error {}
 ```
 
+#### Define meaningful error classes
+
+GOOD
+
+```js
+class RecordAlreadyExistsError extends Error {
+  // ...
+}
+```
+
+BAD
+
+```js
+class UserError extends Error {
+  // ...
+}
+```
+
+#### Pass additional information to the error message
+
+GOOD
+
+```js
+class RecordAlreadyExistsError extends Error {
+  // ...
+}
+
+if (userExists(user)) {
+  throw new RecordAlreadyExistsError(user + " already exists.");
+}
+```
+
+BAD
+
+```js
+class RecordAlreadyExistsError extends Error {
+  // ...
+}
+
+if (userExists(user)) {
+  throw new RecordAlreadyExistsError("Already exists.");
+}
+```
+
 #### Rejected Promises must always be catched and at least logged
 
 Otherwise information might be lost.

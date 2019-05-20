@@ -13,6 +13,7 @@
 .
 ├── app
 │   ├── errors
+│   │   └── record-already-exists-error.js
 │   ├── db
 │   │   └── user
 │   │       ├── user.js

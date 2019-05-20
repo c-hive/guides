@@ -11,7 +11,7 @@ class ExampleError extends Error {
   constructor(...args) {
     super(...args);
 
-    // Ensure that the error constructor isn't included in the stack trace.
+    // Ensures that the error constructor isn't included in the stack trace.
     Error.captureStackTrace(this, ExampleError);
 
     this.name = this.constructor.name;

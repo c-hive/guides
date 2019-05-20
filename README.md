@@ -22,6 +22,8 @@ Use your best judgement and make exceptions when needed.
 
 [Package development](js/package.md)
 
+[Error handling](js/error-handling.md)
+
 [Miscellaneous](js/misc.md)
 
 ### React

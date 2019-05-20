@@ -14,11 +14,15 @@ Use your best judgement and make exceptions when needed.
 
 [Testing](universal/testing.md)
 
+[Error handling](universal/error-handling.md)
+
 [Library development](universal/lib.md)
 
 ## JS
 
 [Package development](js/package.md)
+
+[Error handling](js/error-handling.md)
 
 [Miscellaneous](js/misc.md)
 

@@ -25,7 +25,7 @@ BAD
 class ExampleError extends Error {}
 ```
 
-#### Objects need to be serialized in error messages
+#### Serialize objects in error messages
 
 GOOD
 

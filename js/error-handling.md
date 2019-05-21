@@ -25,13 +25,33 @@ BAD
 class ExampleError extends Error {}
 ```
 
-#### Define meaningful error classes
+#### Objects need to be serialized in error messages
+
+GOOD
+
+```js
+throw new RecordAlreadyExistsError(JSON.stringify(user) + " already exists.");
+// OUTPUT => "user { ... } already exists."
+```
+
+BAD
+
+```js
+console.error(user + " already exists.");
+// OUTPUT => "[object Object] already exists."
+```
+
+#### Define reusable error classes, provide details as error message
 
 GOOD
 
 ```js
 class RecordAlreadyExistsError extends Error {
   // ...
+}
+
+if (userExists(user)) {
+  throw new RecordAlreadyExistsError(JSON.stringify(user) + " already exists.");
 }
 ```
 
@@ -41,31 +61,9 @@ BAD
 class UserError extends Error {
   // ...
 }
-```
-
-#### Pass additional, useful information along with the error message
-
-GOOD
-
-```js
-class RecordAlreadyExistsError extends Error {
-  // ...
-}
 
 if (userExists(user)) {
-  throw new RecordAlreadyExistsError(user + " already exists.");
-}
-```
-
-BAD
-
-```js
-class RecordAlreadyExistsError extends Error {
-  // ...
-}
-
-if (userExists(user)) {
-  throw new RecordAlreadyExistsError("Already exists.");
+  throw new UserError("Already exists.");
 }
 ```
 

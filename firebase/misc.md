@@ -2,7 +2,7 @@
 
 ## Best practices
 
-#### Functions should return `Promise` when permorming asynchronous tasks
+#### Functions should return `Promise` when performing asynchronous tasks
 
 GOOD
 

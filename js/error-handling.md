@@ -25,6 +25,48 @@ BAD
 class ExampleError extends Error {}
 ```
 
+#### Serialize objects in error messages
+
+GOOD
+
+```js
+throw new RecordAlreadyExistsError(JSON.stringify(user) + " already exists.");
+// OUTPUT => "user { ... } already exists."
+```
+
+BAD
+
+```js
+console.error(user + " already exists.");
+// OUTPUT => "[object Object] already exists."
+```
+
+#### Define reusable error classes, provide details as error message
+
+GOOD
+
+```js
+class RecordAlreadyExistsError extends Error {
+  // ...
+}
+
+if (userExists(user)) {
+  throw new RecordAlreadyExistsError(JSON.stringify(user) + " already exists.");
+}
+```
+
+BAD
+
+```js
+class UserError extends Error {
+  // ...
+}
+
+if (userExists(user)) {
+  throw new UserError("Already exists.");
+}
+```
+
 #### Rejected Promises must always be catched and at least logged
 
 Otherwise information might be lost.

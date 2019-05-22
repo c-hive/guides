@@ -6,10 +6,9 @@
 
 Setup and close the server gracefully with the help of global test hooks.
 
-**Mocha example**
-
 ```js
-// mocha-global-hooks.js
+// Mocha
+// => global-hooks.js
 
 const FirebaseServer = require("firebase-server");
 

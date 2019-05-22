@@ -2,13 +2,18 @@
 
 ## Best practices
 
-#### Functions should return `Promise` when performing asynchronous tasks
+#### Deployed functions should return `Promise` when performing asynchronous tasks
 
 GOOD
 
 ```js
 exports.getUser = functions.https.onRequest((req, res) => {
-    // return admin.database() ...
+    return admin.database()
+        .ref("/users/" + userid)
+        .once("value")
+        .then(() => {
+            // ...
+        });
 });
 ```
 
@@ -16,17 +21,22 @@ BAD
 
 ```js
 exports.getUser = functions.https.onRequest((req, res) => {
-    // => Function returned undefined, expected Promise or value.
-    // admin.database() ...
+    admin.database()
+        .ref("/users/" + userid)
+        .once("value")
+        .then(() => {
+            // ...
+        });
+
+    // Firebase console => Function returned undefined, expected Promise or value.
 });
 ```
 
-#### Define restful, explicit API routes with Express
+#### Define RESTful API routes
+
+GOOD
 
 ```js
-// GOOD => /users/:uid
-// BAD => /getUser?uid={UID}
-
 const app = require("express")();
 
 app.get("/users/:uid", function(req, res) => {
@@ -34,4 +44,18 @@ app.get("/users/:uid", function(req, res) => {
 });
 
 exports.api = functions.https.onRequest(app);
+
+// => /users/:uid
+```
+
+BAD
+
+```js
+exports.getUser = functions.https.onRequest((req, res) => {
+    const uid = req.query.uid;
+
+    // ...
+});
+
+// => /getUser?uid={UID}
 ```

@@ -7,9 +7,9 @@
 GOOD
 
 ```js
-exports.getUser = functions.https.onRequest((req, res) => {
+exports.signup = functions.https.onRequest((req, res) => {
     return admin.database()
-        .ref("/users/" + userid)
+        .ref("/users/" + req.query.id)
         .once("value")
         .then(() => {
             // ...
@@ -20,9 +20,9 @@ exports.getUser = functions.https.onRequest((req, res) => {
 BAD
 
 ```js
-exports.getUser = functions.https.onRequest((req, res) => {
+exports.signup = functions.https.onRequest((req, res) => {
     admin.database()
-        .ref("/users/" + userid)
+        .ref("/users/" + req.query.id)
         .once("value")
         .then(() => {
             // ...

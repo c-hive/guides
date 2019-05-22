@@ -1,10 +1,12 @@
 # Firebase / Testing
 
-### Testing with `firebase-server`
+### Packages
 
-Testing frameworks usually provide a way to setup test hooks globally.
+#### `firebase-server`
 
-#### An example with Mocha
+Setup and close the server gracefully with the help of global test hooks.
+
+**Mocha example**
 
 ```js
 // mocha-global-hooks.js
@@ -22,11 +24,13 @@ after(async () => {
 });
 ```
 
-### Testing with `firebase-functions-test`
+#### `firebase-functions-test`
 
 Further investigations are required.
 
-### Empty the database among the tests
+### Best practices
+
+#### Empty the database among the tests
 
 ```js
 // mocha-global-hooks.js

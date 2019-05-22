@@ -34,6 +34,8 @@ exports.signup = functions.https.onRequest((req, res) => {
 
 #### Define RESTful API routes
 
+[**Designing Web APIs using Google Firebase Functions: Achieving True Routing**](Designing Web APIs using Google Firebase Functions: Achieving True Routing)
+
 GOOD
 
 ```js

@@ -59,5 +59,5 @@ exports.getUser = functions.https.onRequest((req, res) => {
     // ...
 });
 
-// => /getUser?uid={UID}
+// => /getUser?uid=npWxk05ZCKMcYb0OaDSJffYQZZq1
 ```

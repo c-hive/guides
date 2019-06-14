@@ -1,11 +1,11 @@
 image: node:8
 
-# => cache dependencies.
+# Cache dependencies.
 cache:
   paths:
     - node_modules/
 
-# => define the desired stages.
+# Define the desired stages.
 test:
   stage: test
   script:
@@ -18,7 +18,7 @@ lint:
     - yarn install
     - yarn lint
 
-# => code quality setup.
+# Code quality setup.
 code_quality:
   stage: test
   image: docker:stable
@@ -37,3 +37,31 @@ code_quality:
   artifacts:
     reports:
       codequality: gl-code-quality-report.json
+
+# Auto-deployment to GitLab pages.
+pages:
+  stage: deploy
+  script:
+    # https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html#the-public-directory
+    # Move the production-ready version into the `public` folder.
+    - yarn run build
+    - mv dist public
+    - cd public && touch .nojekyll
+  artifacts:
+    paths:
+    - public 
+  only:
+  - master
+
+# Auto-deployment to Heroku.
+deploy:
+  stage: deploy
+  only:
+    - master
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$YOUR_APP_NAME --api-key=$HEROKU_API_KEY
+

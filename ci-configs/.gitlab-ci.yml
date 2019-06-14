@@ -45,7 +45,7 @@ pages:
     # https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html#the-public-directory
     # Move the production-ready version into the `public` folder.
     - yarn run build
-    - mv dist public
+    - mv generated_build_folder public
     - cd public && touch .nojekyll
   artifacts:
     paths:

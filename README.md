@@ -26,6 +26,8 @@ Use your best judgement and make exceptions when needed.
 
 [Miscellaneous](js/misc.md)
 
+[CI configurations](js/ci-configs)
+
 ### React
 
 [File structure and naming](react/file-structure-naming.md)

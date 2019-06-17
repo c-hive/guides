@@ -68,7 +68,7 @@ deploy:
     - master
   image: ruby:latest
   script:
-    - (if [[ -z $HEROKU_APP_NAME ]] || [[ -z $HEROKU_API_KEY ]]; then echo "$HEROKU_APP_NAME or $HEROKU_API_KEY is unset. Set these environment variables to enable auto-deployment to Heroku."; exit 0; fi);
+    - (if [[ -z $HEROKU_APP_NAME ]] || [[ -z $HEROKU_API_KEY ]]; then echo "$HEROKU_APP_NAME or $HEROKU_API_KEY is unset. Set these environment variables so that enable auto-deployment to Heroku."; exit 0; fi);
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl

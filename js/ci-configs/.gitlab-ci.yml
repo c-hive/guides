@@ -5,6 +5,12 @@ cache:
   paths:
     - node_modules/
 
+stages:
+  - test
+  - lint
+  - deploy-gl-pages
+  - deploy-heroku
+
 # Define the desired stages.
 test:
   stage: test
@@ -13,7 +19,7 @@ test:
     - yarn test
 
 lint:
-  stage: test
+  stage: lint
   script:
     - yarn install
     - yarn lint
@@ -40,7 +46,7 @@ code_quality:
 
 # Auto-deployment to GitLab pages.
 pages:
-  stage: deploy
+  stage: deploy-gl-pages
   script:
     # https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html#the-public-directory
     # Move the production-ready version into the `public` folder.
@@ -55,7 +61,7 @@ pages:
 
 # Auto-deployment to Heroku.
 deploy:
-  stage: deploy
+  stage: deploy-heroku
   only:
     - master
   image: ruby:latest

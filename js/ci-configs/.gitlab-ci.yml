@@ -8,6 +8,7 @@ cache:
 stages:
   - test
   - lint
+  - code_quality
   - deploy-gl-pages
   - deploy-heroku
 
@@ -29,7 +30,7 @@ lint:
 
 # Code quality setup.
 code_quality:
-  stage: test
+  stage: code_quality
   image: docker:stable
   variables:
     DOCKER_DRIVER: overlay2

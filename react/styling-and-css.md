@@ -133,7 +133,7 @@ Component styles are declared in a separate `.styles.js` file using the [`css` h
 Elements within the style files use the `Style` suffix.
 
 ```js
-// => component.style.js
+// => Component.style.js
 import { css } from "styled-components";
 
 export const buttonStyle = css`
@@ -144,7 +144,7 @@ export const buttonStyle = css`
 Styled components apply *UpperCamelCase* without the suffix.
 
 ```js
-// => component.js
+// => Component.js
 import styled from "styled-components";
 import { buttonStyle } from "./component.style";
 

@@ -128,6 +128,29 @@ Component styles are declared in a separate `.styles.js` file using the [`css` h
 
 [SMACSS categories](https://smacss.com/book/categorizing) provide a practical separation of concerns. Module and state categories are covered by the `component.style.js` pattern, however styles that reach accross components (whether because they are global or just affect many components) need a proper place. Place them in `src/common_styles` and use SMACSS catogires for grouping. Applies both to CSS and CSS-in-JS.
 
+#### Naming
+
+Elements within the style files use the `Style` suffix.
+
+```js
+// => component.style.js
+import { css } from "styled-components";
+
+export const buttonStyle = css`
+  // ...
+`;
+```
+
+Styled components apply *UpperCamelCase* without the suffix.
+
+```js
+// => component.js
+import styled from "styled-components";
+import { buttonStyle } from "./component.style.js";
+
+const Button = styled.button`${buttonStyle}`;
+```
+
 
 ## CSS-in-JS example
 

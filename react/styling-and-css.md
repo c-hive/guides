@@ -146,7 +146,7 @@ Styled components apply *UpperCamelCase* without the suffix.
 ```js
 // => component.js
 import styled from "styled-components";
-import { buttonStyle } from "./component.style.js";
+import { buttonStyle } from "./component.style";
 
 const Button = styled.button`${buttonStyle}`;
 ```
@@ -168,12 +168,12 @@ const Button = styled.button`${buttonStyle}`;
 Header.js
 ```js
 import styled from 'styled-components';
-import { headerDivStyle } from './Header.style';
+import { headerStyle } from './Header.style';
 
 const header = () => {
-  const styledHeader = styled.div`${headerDivStyle};`;
+  const Header = styled.div`${headerStyle};`;
 
-  return <styledHeader />;
+  return <Header />;
 };
 
 export default header;
@@ -183,7 +183,7 @@ Header.style.js
 ```js
 import { css } from 'styled-components';
 
-export const headerDivStyle = css`
+export const headerStyle = css`
   margin: 0.5rem 1rem;
   width: 11rem;
   background: transparent;

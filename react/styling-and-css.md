@@ -141,7 +141,7 @@ export const buttonStyle = css`
 `;
 ```
 
-Styled components apply *UpperCamelCase* without the suffix.
+Styled components don't use the suffix.
 
 ```js
 // => Component.js

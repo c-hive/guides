@@ -167,8 +167,8 @@ const Button = styled.button`${buttonStyle}`;
 
 Header.js
 ```js
-import styled from 'styled-components';
-import { headerStyle } from './Header.style';
+import styled from "styled-components";
+import { headerStyle } from "./Header.style";
 
 const header = () => {
   const Header = styled.div`${headerStyle}`;
@@ -181,7 +181,7 @@ export default header;
 
 Header.style.js
 ```js
-import { css } from 'styled-components';
+import { css } from "styled-components";
 
 export const headerStyle = css`
   margin: 0.5rem 1rem;

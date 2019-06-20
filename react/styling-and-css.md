@@ -171,7 +171,7 @@ import styled from 'styled-components';
 import { headerStyle } from './Header.style';
 
 const header = () => {
-  const Header = styled.div`${headerStyle};`;
+  const Header = styled.div`${headerStyle}`;
 
   return <Header />;
 };

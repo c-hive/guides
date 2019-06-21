@@ -128,6 +128,29 @@ Component styles are declared in a separate `.styles.js` file using the [`css` h
 
 [SMACSS categories](https://smacss.com/book/categorizing) provide a practical separation of concerns. Module and state categories are covered by the `component.style.js` pattern, however styles that reach accross components (whether because they are global or just affect many components) need a proper place. Place them in `src/common_styles` and use SMACSS catogires for grouping. Applies both to CSS and CSS-in-JS.
 
+#### Naming
+
+Elements within the style files use the `Style` suffix.
+
+```js
+// => Component.style.js
+import { css } from "styled-components";
+
+export const buttonStyle = css`
+  // ...
+`;
+```
+
+Styled components don't use the suffix.
+
+```js
+// => Component.js
+import styled from "styled-components";
+import { buttonStyle } from "./component.style";
+
+const Button = styled.button`${buttonStyle}`;
+```
+
 
 ## CSS-in-JS example
 
@@ -144,13 +167,13 @@ Component styles are declared in a separate `.styles.js` file using the [`css` h
 
 Header.js
 ```js
-import styled from 'styled-components';
-import { headerDivStyle } from './Header.style';
+import styled from "styled-components";
+import { headerStyle } from "./Header.style";
 
 const header = () => {
-  const styledHeader = styled.div`${headerDivStyle};`;
+  const Header = styled.div`${headerStyle}`;
 
-  return <styledHeader />;
+  return <Header />;
 };
 
 export default header;
@@ -158,9 +181,9 @@ export default header;
 
 Header.style.js
 ```js
-import { css } from 'styled-components';
+import { css } from "styled-components";
 
-export const headerDivStyle = css`
+export const headerStyle = css`
   margin: 0.5rem 1rem;
   width: 11rem;
   background: transparent;

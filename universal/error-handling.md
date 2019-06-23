@@ -39,6 +39,14 @@ Often happens on the frontend.
 - Example: GOOD: "Something unexpected happened", BAD: "JSON.parseError"
 - Example: GOOD: "The page is running with limited functionality", BAD: "XYZ feature is not available"
 
+#### Consecutive errors must be distinguishable.
+
+- Example: BAD: An AJAX form validation failed on post, the field is higlighted. The user edits the field and resends the form. Throughout this, the error hghlight is always visible. The user cannot tell if there's another error or if it's just "stuck".
+
+- Example: GOOD: An AJAX form validation failed on post, the field is higlighted. As the user changes the value the highlight is removed. Upon resubmission if the value is still incorrect the highlight appears again.
+
+- Example: GOOD: Input validation failed on post, there's an error bubble. The bubble has a fade-in animation, it can be dismissed and it is automatically dismissed upon a new submission. If the value is still incorrect the bubble shows up again using the same fade-in animation.
+
 ## Developer facing error
 
 Often happens on the backend. In certain cases a generic fallback strategy should be implemented (e.g. retry).

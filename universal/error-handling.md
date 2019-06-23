@@ -41,9 +41,9 @@ Often happens on the frontend.
 
 #### Consecutive errors must be distinguishable.
 
-- Example: BAD: An AJAX form validation failed on post, the field is higlighted. The user edits the field and resends the form. Throughout this, the error hghlight is always visible. The user cannot tell if there's another error or if it's just "stuck".
+- Example: BAD: An AJAX form validation failed on post, the field is highlighted. The user edits the field and resends the form. Throughout this, the error highlight is always visible. The user cannot tell if there's another error or if it's just "stuck".
 
-- Example: GOOD: An AJAX form validation failed on post, the field is higlighted. As the user changes the value the highlight is removed. Upon resubmission if the value is still incorrect the highlight appears again.
+- Example: GOOD: An AJAX form validation failed on post, the field is highlighted. As the user changes the value the highlight is removed. Upon resubmission, if the value is still incorrect the highlight appears again.
 
 - Example: GOOD: Input validation failed on post, there's an error bubble. The bubble has a fade-in animation, it can be dismissed and it is automatically dismissed upon a new submission. If the value is still incorrect the bubble shows up again using the same fade-in animation.
 

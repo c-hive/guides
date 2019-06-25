@@ -81,4 +81,3 @@ deploy:
     variables:
       - $HEROKU_APP_NAME
       - $HEROKU_API_KEY
-

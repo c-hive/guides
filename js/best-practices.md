@@ -1,4 +1,4 @@
-# Javascript / Miscellaneous
+# Javascript / Best practices
 
 #### Comment dependencies in the `package.json`
 

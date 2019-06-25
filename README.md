@@ -24,7 +24,7 @@ Use your best judgement and make exceptions when needed.
 
 [Error handling](js/error-handling.md)
 
-[Miscellaneous](js/misc.md)
+[Best practices](js/best-practices.md)
 
 [CI configurations](js/ci-configs)
 

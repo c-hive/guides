@@ -48,6 +48,10 @@ Use your best judgement and make exceptions when needed.
 
 [Miscellaneous](node/misc.md)
 
+### Electron
+
+[Best practices](electron/best-practices.md)
+
 ## Ruby
 
 [Gem development](ruby/gem.md)

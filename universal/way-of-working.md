@@ -79,11 +79,6 @@ One way to force checks before committing is via pre-commit hooks. Nowadays ther
 
 Run at least `test` and `lint` steps.
 
-### Special branches
-
-- master (production or staging/preview)
-- release or tags on master (if master is used for staging/preview)
-
 ## Design
 
 ### Types

@@ -49,7 +49,7 @@ app.get("/users/:uid", function(req, res) => {
 
 exports.api = functions.https.onRequest(app);
 
-// => /users/npWxk05ZCKMcYb0OaDSJffYQZZq1
+// => /api/users/npWxk05ZCKMcYb0OaDSJffYQZZq1
 ```
 
 BAD

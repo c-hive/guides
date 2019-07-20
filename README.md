@@ -16,7 +16,7 @@ Use your best judgement and make exceptions when needed.
 
 [Error handling](universal/error-handling.md)
 
-[Library development](universal/lib.md)
+[Versioning and releases](universal/versioning-and-releases.md)
 
 ## JS
 

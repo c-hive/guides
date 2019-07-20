@@ -59,3 +59,5 @@ Use your best judgement and make exceptions when needed.
 ## Etc
 
 [Social media](etc/social-media.md)
+
+[Good Enough™ regexes](etc/regex.md)

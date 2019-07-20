@@ -1,7 +1,7 @@
 # Etc / Good Enough™ regexes
 
 - use non-capturing groups for [performance reasons](https://stackoverflow.com/questions/33243292/capturing-group-vs-non-capturing-group)
-- [avoid greedy matching](https://mariusschulz.com/blog/why-using-the-greedy-in-regular-expressions-is-almost-never-what-you-actually-want), use lazy matching
+- [avoid greedy matching](https://mariusschulz.com/blog/why-using-the-greedy-in-regular-expressions-is-almost-never-what-you-actually-want): use lazy matching and avoid "any" matchers
 
 ## URLs
 
@@ -21,6 +21,26 @@ https://regex101.com/r/accq7h/4/tests
 `^(?:http(?:s)?:\/\/)?[a-zA-Z0-9-]{1,63}\.github\.io$`
 
 `^(?:http(?:s)?:\/\/)?[a-zA-Z0-9-]{1,63}\.herokuapp\.com$`
+
+### Domains
+
+By-the-books FQDN matching:
+- max 253 character long
+- max 63 character long per label
+- any characters are allowed (as per [RFC-2181](https://tools.ietf.org/html/rfc2181#section-11))
+- TLDs cannot be all-numeric (as per [RFC-3696](https://tools.ietf.org/html/rfc3696#section-2))
+
+Practical / conservative FQDN matching
+- valid characters: `[a-zA-Z0-9.-]`
+- doesn't contain `-` at the end or beginning of a label
+- TLD min length is 2 character (as per RFC-1123 1 character TLDs are allowed but they don't exists today)
+- TLD max length is 24 character (as per RFC-952)
+
+- see also: [TLD limitations](https://stackoverflow.com/questions/7411255/is-it-possible-to-have-one-single-character-top-level-domain-name), [domain limitations](https://stackoverflow.com/questions/32290167/what-is-the-maximum-length-of-a-dns-name/32294443), [list of TLDs](http://data.iana.org/TLD/tlds-alpha-by-domain.txt)
+
+`^(?!.*?_.*?)(?!(?:[\d\w]+?\.)?\-[\w\d\.\-]*?)(?![\w\d]+?\-\.(?:[\d\w\.\-]+?))(?=[\w\d])(?=[\w\d\.\-]*?\.+[\w\d\.\-]*?)(?![\w\d\.\-]{254})(?!(?:\.?[\w\d\-\.]*?[\w\d\-]{64,}\.)+?)[\w\d\.\-]+?(?<![\w\d\-\.]*?\.[\d]+?)(?<=[\w\d\-]{2,})(?<![\w\d\-]{25})$`
+
+https://regex101.com/r/FLA9Bv/5
 
 ## Semantic version
 

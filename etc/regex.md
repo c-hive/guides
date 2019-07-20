@@ -1,7 +1,7 @@
 # Etc / Good Enough™ regexes
 
 - use non-capturing groups for [performance reasons](https://stackoverflow.com/questions/33243292/capturing-group-vs-non-capturing-group)
-- [avoid greedy matching](https://mariusschulz.com/blog/why-using-the-greedy-in-regular-expressions-is-almost-never-what-you-actually-want), use lazy matching or "more of something" quantifiers
+- [avoid greedy matching](https://mariusschulz.com/blog/why-using-the-greedy-in-regular-expressions-is-almost-never-what-you-actually-want), use lazy matching
 
 ## URLs
 
@@ -12,7 +12,7 @@
 
 `^(?:http(?:s)?:\/\/)?(?:localhost|127\.0\.0\.1|0\.0\.0\.0)(?::\d{1,5})?$`
 
-https://regex101.com/r/accq7h/3/tests
+https://regex101.com/r/accq7h/4/tests
 
 ### Popular deployment options
 
@@ -25,3 +25,11 @@ https://regex101.com/r/accq7h/3/tests
 ## Semantic version
 
 `^v[0-9]\.[0-9]\.[0-9]$`
+
+## Argument list
+
+Extracts valid arguments from comma-separated argument list, supporting double-quoted arguments
+
+`(?<=")[^"]+?(?="(?:\s*?,|\s*?$))|(?<=(?:^|,)\s*?)(?:[^,"\s][^,"]*[^,"\s])|(?:[^,"\s])(?![^"]*?"(?:\s*?,|\s*?$))(?=\s*?(?:,|$))`
+
+https://regex101.com/r/UL8kyy/3/tests

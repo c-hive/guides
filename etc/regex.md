@@ -25,20 +25,23 @@ https://regex101.com/r/accq7h/4/tests
 ### Domains
 
 By-the-books FQDN matching:
-- max 253 character long (as per [RFC-2181/11](https://tools.ietf.org/html/rfc2181#section-11)
-- max 63 character long per label (as per [RFC-2181/11](https://tools.ietf.org/html/rfc2181#section-11))
+- max 253 character long (as per [RFC-1035/3.1](https://tools.ietf.org/html/rfc1035), [RFC-2181/11](https://tools.ietf.org/html/rfc2181#section-11))
+- max 63 character long per label (as per [RFC-1035/3.1](https://tools.ietf.org/html/rfc1035), [RFC-2181/11](https://tools.ietf.org/html/rfc2181#section-11))
 - any characters are allowed (as per [RFC-2181/11](https://tools.ietf.org/html/rfc2181#section-11))
 - TLDs cannot be all-numeric (as per [RFC-3696/2](https://tools.ietf.org/html/rfc3696#section-2))
+- FQDNs can be written in a complete form, which includes the root zone (the trailing dot)
 
 Practical / conservative FQDN matching
 - valid characters: `[a-zA-Z0-9.-]`
 - labels cannot start or end with hyphens (as per [RFC-952](https://tools.ietf.org/html/rfc952) and [RFC-1123/2.1](https://tools.ietf.org/html/rfc1123#section-2.1))
 - TLD min length is 2 character, max length is 24 character as per currently existing records
-- see also: [TLD limitations](https://stackoverflow.com/questions/7411255/is-it-possible-to-have-one-single-character-top-level-domain-name), [domain limitations](https://stackoverflow.com/questions/32290167/what-is-the-maximum-length-of-a-dns-name/32294443), [list of TLDs](http://data.iana.org/TLD/tlds-alpha-by-domain.txt)
+- don't match training dot
 
 `^(?!.*?_.*?)(?!(?:[\d\w]+?\.)?\-[\w\d\.\-]*?)(?![\w\d]+?\-\.(?:[\d\w\.\-]+?))(?=[\w\d])(?=[\w\d\.\-]*?\.+[\w\d\.\-]*?)(?![\w\d\.\-]{254})(?!(?:\.?[\w\d\-\.]*?[\w\d\-]{64,}\.)+?)[\w\d\.\-]+?(?<![\w\d\-\.]*?\.[\d]+?)(?<=[\w\d\-]{2,})(?<![\w\d\-]{25})$`
 
-https://regex101.com/r/FLA9Bv/5
+https://regex101.com/r/FLA9Bv/7
+
+See also: [TLD limitations](https://stackoverflow.com/questions/7411255/is-it-possible-to-have-one-single-character-top-level-domain-name), [domain limitations](https://stackoverflow.com/questions/32290167/what-is-the-maximum-length-of-a-dns-name/32294443), [list of TLDs](http://data.iana.org/TLD/tlds-alpha-by-domain.txt), [by-the-books regex and explanation](https://regexr.com/3g5j0)
 
 ## Semantic version
 

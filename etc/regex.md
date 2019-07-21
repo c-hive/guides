@@ -24,7 +24,7 @@ https://regex101.com/r/accq7h/4/tests
 
 ### Domains
 
-There're two approaches to chose from when validating domains.
+There're two approaches to choose from when validating domains.
 
 By-the-books FQDN matching (theoretical definition, rarely encountered in practice):
 - max 253 character long (as per [RFC-1035/3.1](https://tools.ietf.org/html/rfc1035), [RFC-2181/11](https://tools.ietf.org/html/rfc2181#section-11))
@@ -44,7 +44,7 @@ Regex for the practical use case:
 
 `^(?!.*?_.*?)(?!(?:[\d\w]+?\.)?\-[\w\d\.\-]*?)(?![\w\d]+?\-\.(?:[\d\w\.\-]+?))(?=[\w\d])(?=[\w\d\.\-]*?\.+[\w\d\.\-]*?)(?![\w\d\.\-]{254})(?!(?:\.?[\w\d\-\.]*?[\w\d\-]{64,}\.)+?)[\w\d\.\-]+?(?<![\w\d\-\.]*?\.[\d]+?)(?<=[\w\d\-]{2,})(?<![\w\d\-]{25})$`
 
-https://regex101.com/r/FLA9Bv/7
+https://regex101.com/r/FLA9Bv/8
 
 See also: [TLD limitations](https://stackoverflow.com/questions/7411255/is-it-possible-to-have-one-single-character-top-level-domain-name), [domain limitations](https://stackoverflow.com/questions/32290167/what-is-the-maximum-length-of-a-dns-name/32294443), [list of TLDs](http://data.iana.org/TLD/tlds-alpha-by-domain.txt), [by-the-books regex and explanation](https://regexr.com/3g5j0)
 

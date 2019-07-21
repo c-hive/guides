@@ -24,18 +24,23 @@ https://regex101.com/r/accq7h/4/tests
 
 ### Domains
 
-By-the-books FQDN matching:
+There're two approaches to chose from when validating domains.
+
+By-the-books FQDN matching (theoretical definition, rarely encountered in practice):
 - max 253 character long (as per [RFC-1035/3.1](https://tools.ietf.org/html/rfc1035), [RFC-2181/11](https://tools.ietf.org/html/rfc2181#section-11))
 - max 63 character long per label (as per [RFC-1035/3.1](https://tools.ietf.org/html/rfc1035), [RFC-2181/11](https://tools.ietf.org/html/rfc2181#section-11))
 - any characters are allowed (as per [RFC-2181/11](https://tools.ietf.org/html/rfc2181#section-11))
 - TLDs cannot be all-numeric (as per [RFC-3696/2](https://tools.ietf.org/html/rfc3696#section-2))
 - FQDNs can be written in a complete form, which includes the root zone (the trailing dot)
 
-Practical / conservative FQDN matching
+Practical / conservative FQDN matching (practical definition, expected and supported in practice):
+- by-the-books matching with the following exceptions/additions
 - valid characters: `[a-zA-Z0-9.-]`
 - labels cannot start or end with hyphens (as per [RFC-952](https://tools.ietf.org/html/rfc952) and [RFC-1123/2.1](https://tools.ietf.org/html/rfc1123#section-2.1))
 - TLD min length is 2 character, max length is 24 character as per currently existing records
-- don't match training dot
+- don't match trailing dot
+
+Regex for the practical use case:
 
 `^(?!.*?_.*?)(?!(?:[\d\w]+?\.)?\-[\w\d\.\-]*?)(?![\w\d]+?\-\.(?:[\d\w\.\-]+?))(?=[\w\d])(?=[\w\d\.\-]*?\.+[\w\d\.\-]*?)(?![\w\d\.\-]{254})(?!(?:\.?[\w\d\-\.]*?[\w\d\-]{64,}\.)+?)[\w\d\.\-]+?(?<![\w\d\-\.]*?\.[\d]+?)(?<=[\w\d\-]{2,})(?<![\w\d\-]{25})$`
 

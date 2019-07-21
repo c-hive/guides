@@ -52,6 +52,10 @@ Use your best judgement and make exceptions when needed.
 
 [Best practices](electron/best-practices.md)
 
+### Firebase
+
+[Best practices](firebase/best-practices.md)
+
 ## Ruby
 
 [Gem development](ruby/gem.md)

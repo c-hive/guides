@@ -1,6 +1,4 @@
-# Firebase / Miscellaneous
-
-## Best practices
+# Firebase / Best practices
 
 #### Deployed functions should return `Promise` when performing asynchronous tasks
 

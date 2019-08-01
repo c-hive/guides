@@ -82,7 +82,6 @@ gl-pages-deploy:
     variables:
       - $DEPLOY_TO_GL_PAGES
 
-# `APIARY_API_KEY` must be defined in the CI.
 apiary-deploy:
   stage: deploy
   image: ruby:2.3
@@ -93,3 +92,5 @@ apiary-deploy:
   only:
     refs:
       - master
+  variables:
+    - $APIARY_API_KEY

@@ -29,7 +29,10 @@ apiary-validate:
   stage: verify
   script:
       - yarn install
-      - yarn validate:api-doc
+      - node $APIARY_VALIDATOR_PATH
+    only:
+      variables:
+        - $APIARY_VALIDATOR_PATH
 
 code-quality:
   stage: verify

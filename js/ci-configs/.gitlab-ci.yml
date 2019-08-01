@@ -92,6 +92,6 @@ apiary-deploy:
   only:
     refs:
       - master
-  variables:
-    - $APIARY_API_KEY
-    - $APIARY_SUBDOMAIN
+    variables:
+      - $APIARY_API_KEY
+      - $APIARY_SUBDOMAIN

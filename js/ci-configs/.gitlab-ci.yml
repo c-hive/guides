@@ -88,9 +88,10 @@ apiary-deploy:
   before_script:
     - gem install apiaryio
   script:
-    - apiary publish --path="<path-to-apib>" --api-name=$APIARY_SUB_DOMAIN
+    - apiary publish --path="<path-to-apib>" --api-name=$APIARY_SUBDOMAIN
   only:
     refs:
       - master
   variables:
     - $APIARY_API_KEY
+    - $APIARY_SUBDOMAIN

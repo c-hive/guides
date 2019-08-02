@@ -6,15 +6,12 @@ cache:
     - node_modules/
 
 stages:
-  - test
-  - lint
-  - code_quality
-  - deploy-gl-pages
-  - deploy-heroku
+  - verify
+  - deploy
 
-# Define the desired stages.
+# Define jobs under the same stage to run them in parallel.
 test:
-  stage: test
+  stage: verify
   script:
     - yarn install
     - yarn test
@@ -23,14 +20,22 @@ test:
   coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
 
 lint:
-  stage: lint
+  stage: verify
   script:
     - yarn install
     - yarn lint
 
-# Code quality setup.
-code_quality:
-  stage: code_quality
+apiary-validate:
+  stage: verify
+  script:
+      - yarn install
+      - node $APIARY_VALIDATOR_PATH
+    only:
+      variables:
+        - $APIARY_VALIDATOR_PATH
+
+code-quality:
+  stage: verify
   image: docker:stable
   variables:
     DOCKER_DRIVER: overlay2
@@ -48,27 +53,8 @@ code_quality:
     reports:
       codequality: gl-code-quality-report.json
 
-# Auto-deployment to GitLab pages.
-pages:
-  stage: deploy-gl-pages
-  script:
-    # https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html#the-public-directory
-    # Move the production-ready version into the `public` folder.
-    - yarn run build
-    - mv generated_build_folder public
-    - cd public && touch .nojekyll
-  artifacts:
-    paths:
-    - public 
-  only:
-    refs:
-      - master
-    variables:
-      - $DEPLOY_TO_GL_PAGES
-
-# Auto-deployment to Heroku.
-deploy:
-  stage: deploy-heroku
+heroku-deploy:
+  stage: deploy
   image: ruby:latest
   script:
     - apt-get update -qy
@@ -81,3 +67,34 @@ deploy:
     variables:
       - $HEROKU_APP_NAME
       - $HEROKU_API_KEY
+
+gl-pages-deploy:
+  stage: deploy
+  script:
+    - yarn run build
+    # https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html#the-public-directory
+    # Move the built folder into `public`.
+    - mv <build-folder> public
+    - cd public && touch .nojekyll
+  artifacts:
+    paths:
+    - public 
+  only:
+    refs:
+      - master
+    variables:
+      - $DEPLOY_TO_GL_PAGES
+
+apiary-deploy:
+  stage: deploy
+  image: ruby:2.3
+  before_script:
+    - gem install apiaryio
+  script:
+    - apiary publish --path="<path-to-apib>" --api-name=$APIARY_SUBDOMAIN
+  only:
+    refs:
+      - master
+    variables:
+      - $APIARY_API_KEY
+      - $APIARY_SUBDOMAIN

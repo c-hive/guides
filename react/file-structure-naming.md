@@ -17,15 +17,18 @@
 │   │   └── layout.css
 │   ├── components
 │   │   ├── App
-│   │   │   ├── App.css
 │   │   │   ├── App.js
+│   │   │   ├── App.style.js
 │   │   │   ├── App.test.js
-│   │   │   └── App.test.js.snap
-│   │   └── Header
-│   │       ├── Header.css
-│   │       ├── Header.js
-│   │       ├── Header.test.js
-│   │       └── Header.spec.js.snap
+│   │   │   ├── App.test.js.snap
+│   │   └── Medium
+│   │   │   ├── Medium.js
+│   │   │   ├── Medium.style.js
+│   │   │   ├── Medium.test.js
+│   │   │   ├── Medium.spec.js.snap
+│   │   │   └── utils
+│   │   │   │   └── MediumUtils
+│   │   │   │   │   ├── MediumUtils.js
 │   ├── errors
 │   │   └── custom-error-class.js
 │   └── utils
@@ -48,6 +51,8 @@
 ## Special folders
 
 - `src/components`
+- `src/components/*/utils`
+ - Tightly coupled function(s) to a specific component
 - `src/utils`
   - Non-UI / non-component / utility features not tightly linked to the specific project (e.g. `Api`, `CorsProxy`)
 - `src/resources`

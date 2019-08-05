@@ -21,6 +21,8 @@
 │   │   │   ├── App.js
 │   │   │   ├── App.test.js
 │   │   │   └── App.test.js.snap
+│   │   │   ├── helpers
+│   │   │   │   └── RSSParser.js
 │   │   └── Header
 │   │       ├── Header.css
 │   │       ├── Header.js
@@ -49,9 +51,11 @@
 - `src/utils`
   - Non-UI / non-component / utility features not tightly linked to the specific project (e.g. `Api`, `CorsProxy`)
 - `src/resources`
-  - Machine readable, hardcoded data (e.g. `ItemTypes`, json data files)
+  - Machine readable, hardcoded data (e.g. settings in a JSON file)
 - `src/common_styles`
   - style files applied to the whole project
+- `src/components/*/helpers`
+    - tightly coupled function(s) to a specific component
 
 ## Grouping
 

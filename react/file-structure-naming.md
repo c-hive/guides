@@ -27,8 +27,7 @@
 │   │   │   ├── Medium.test.js
 │   │   │   ├── Medium.spec.js.snap
 │   │   │   └── utils
-│   │   │   │   └── MediumUtils
-│   │   │   │   │   ├── MediumUtils.js
+│   │   │   │   ├── MediumUtils.js
 │   ├── errors
 │   │   └── custom-error-class.js
 │   └── utils

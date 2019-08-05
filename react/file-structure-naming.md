@@ -21,13 +21,13 @@
 │   │   │   ├── App.js
 │   │   │   ├── App.test.js
 │   │   │   └── App.test.js.snap
-│   │   │   ├── helpers
-│   │   │   │   └── RSSParser.js
 │   │   └── Header
 │   │       ├── Header.css
 │   │       ├── Header.js
 │   │       ├── Header.test.js
 │   │       └── Header.spec.js.snap
+│   ├── errors
+│   │   └── custom-error-class.js
 │   └── utils
 │       ├── testing
 │       │   └── TestHelpers.js
@@ -53,9 +53,9 @@
 - `src/resources`
   - Machine readable, hardcoded data (e.g. settings in a JSON file)
 - `src/common_styles`
-  - style files applied to the whole project
-- `src/components/*/helpers`
-    - tightly coupled function(s) to a specific component
+  - Style files applied to the whole project
+- `src/errors`
+    - Custom error objects
 
 ## Grouping
 

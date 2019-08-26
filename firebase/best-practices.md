@@ -75,6 +75,23 @@ exports.signup = functions.auth.user().onCreate(user =>
 // ERROR => Function execution took 60 ms, finished with status: 'error'
 ```
 
+GOOD
+
+```js
+exports.signup = functions.auth.user().onCreate(user =>
+  Model.create(user)
+    .then(() => Service.createCustomer(user))
+    .catch(err => {
+        console.error(JSON.stringify(err)).
+
+        // Re-throw the error to fail the Promise explicitly.
+        throw new ExampleError(err);
+    })
+);
+
+// ERROR => Function execution took 60 ms, finished with status: 'error'
+```
+
 BAD
 
 ```js
@@ -82,7 +99,7 @@ exports.signup = functions.auth.user().onCreate(user =>
   Model.create(user)
     .then(() => Service.createCustomer(user))
     .catch(err => {
-      // ...
+        console.error(JSON.stringify(err));
     })
 );
 

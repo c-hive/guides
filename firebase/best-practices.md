@@ -61,3 +61,30 @@ exports.getUser = functions.https.onRequest((req, res) => {
 
 // => /getUser?uid=npWxk05ZCKMcYb0OaDSJffYQZZq1
 ```
+
+#### Let the `Promise` fail unless there is a fallback strategy
+
+GOOD
+
+```js
+exports.signup = functions.auth.user().onCreate(user => 
+  Model.create(user)
+    .then(() => Service.createCustomer(user))
+);
+
+// => Function execution took 60 ms, finished with status: 'error'
+```
+
+BAD
+
+```js
+exports.signup = functions.auth.user().onCreate(user =>
+  Model.create(user)
+    .then(() => Service.createCustomer(user))
+    .catch(err => {
+      // ...
+    })
+);
+
+// signup Function execution took 60 ms, finished with status: 'ok'
+```

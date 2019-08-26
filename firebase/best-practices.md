@@ -82,10 +82,10 @@ exports.signup = functions.auth.user().onCreate(user =>
   Model.create(user)
     .then(() => Service.createCustomer(user))
     .catch(err => {
-        console.error(JSON.stringify(err)).
+      console.error(JSON.stringify(err));
 
-        // Re-throw the error to fail the Promise explicitly.
-        throw new ExampleError(err);
+      // Re-throw the error to fail the Promise explicitly.
+      throw new ExampleError(err);
     })
 );
 

@@ -67,17 +67,6 @@ exports.getUser = functions.https.onRequest((req, res) => {
 GOOD
 
 ```js
-exports.signup = functions.auth.user().onCreate(user => 
-  Model.create(user)
-    .then(() => Service.createCustomer(user))
-);
-
-// ERROR => Function execution took 60 ms, finished with status: 'error'
-```
-
-GOOD
-
-```js
 exports.signup = functions.auth.user().onCreate(user =>
   Model.create(user)
     .then(() => Service.createCustomer(user))
@@ -85,7 +74,7 @@ exports.signup = functions.auth.user().onCreate(user =>
       console.error(JSON.stringify(err));
 
       // Re-throw the error to fail the Promise explicitly.
-      throw new ExampleError(err);
+      throw err;
     })
 );
 

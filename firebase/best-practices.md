@@ -62,7 +62,7 @@ exports.getUser = functions.https.onRequest((req, res) => {
 // => /getUser?uid=npWxk05ZCKMcYb0OaDSJffYQZZq1
 ```
 
-#### Let the `Promise` fail to construct meaningful logs in Firebase unless there is a fallback strategy
+#### Let promises get rejected when handling errors unless there is a fallback strategy
 
 GOOD
 
@@ -78,7 +78,7 @@ exports.signup = functions.auth.user().onCreate(user =>
     })
 );
 
-// ERROR => Function execution took 60 ms, finished with status: 'error'
+// => Function execution took 60 ms, finished with status: 'error'
 ```
 
 BAD
@@ -92,5 +92,5 @@ exports.signup = functions.auth.user().onCreate(user =>
     })
 );
 
-// ERROR => Function execution took 60 ms, finished with status: 'ok'
+// => Function execution took 60 ms, finished with status: 'ok'
 ```

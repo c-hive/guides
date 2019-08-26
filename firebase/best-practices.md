@@ -62,7 +62,7 @@ exports.getUser = functions.https.onRequest((req, res) => {
 // => /getUser?uid=npWxk05ZCKMcYb0OaDSJffYQZZq1
 ```
 
-#### Let the `Promise` fail unless there is a fallback strategy
+#### Let the `Promise` fail to construct meaningful logs in Firebase unless there is a fallback strategy
 
 GOOD
 

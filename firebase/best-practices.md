@@ -72,7 +72,7 @@ exports.signup = functions.auth.user().onCreate(user =>
     .then(() => Service.createCustomer(user))
 );
 
-// => Function execution took 60 ms, finished with status: 'error'
+// ERROR => Function execution took 60 ms, finished with status: 'error'
 ```
 
 BAD
@@ -86,5 +86,5 @@ exports.signup = functions.auth.user().onCreate(user =>
     })
 );
 
-// signup Function execution took 60 ms, finished with status: 'ok'
+// ERROR => Function execution took 60 ms, finished with status: 'ok'
 ```

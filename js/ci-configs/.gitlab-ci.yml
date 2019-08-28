@@ -31,9 +31,9 @@ apiary-validate:
   script:
       - yarn install
       - node $APIARY_VALIDATOR_PATH
-    only:
-      variables:
-        - $APIARY_VALIDATOR_PATH
+  only:
+    variables:
+      - $APIARY_VALIDATOR_PATH
 
 code-quality:
   stage: verify
@@ -54,15 +54,15 @@ code-quality:
     reports:
       codequality: gl-code-quality-report.json
 
-electron-build:
+electron-win-build:
   stage: build
   image: electronuserland/builder:wine
   script:
     - yarn install
-    - yarn <package-script>
+    - yarn <windows-package-script>
   artifacts:
     paths:
-      - <file.ext>
+      - <file.exe>
 
 
 heroku-deploy:

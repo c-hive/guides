@@ -62,8 +62,10 @@ electron-win-build:
     - yarn <windows-package-script>
   artifacts:
     paths:
-      - <file.exe>
-
+      - path/to/release/*.exe
+  only:
+    variables:
+      - $BUILD_ELECTRON_ON_WINDOWS
 
 heroku-deploy:
   stage: deploy

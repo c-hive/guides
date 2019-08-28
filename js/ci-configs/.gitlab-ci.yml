@@ -65,7 +65,7 @@ electron-win-build:
       - path/to/release/*.exe
   only:
     variables:
-      - $BUILD_ELECTRON_ON_WINDOWS
+      - $BUILD_ELECTRON_WINDOWS_APP
 
 heroku-deploy:
   stage: deploy

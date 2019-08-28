@@ -7,6 +7,7 @@ cache:
 
 stages:
   - verify
+  - build
   - deploy
 
 # Define jobs under the same stage to run them in parallel.
@@ -30,9 +31,9 @@ apiary-validate:
   script:
       - yarn install
       - node $APIARY_VALIDATOR_PATH
-    only:
-      variables:
-        - $APIARY_VALIDATOR_PATH
+  only:
+    variables:
+      - $APIARY_VALIDATOR_PATH
 
 code-quality:
   stage: verify
@@ -52,6 +53,19 @@ code-quality:
   artifacts:
     reports:
       codequality: gl-code-quality-report.json
+
+electron-win-build:
+  stage: build
+  image: electronuserland/builder:wine
+  script:
+    - yarn install
+    - yarn <windows-package-script>
+  artifacts:
+    paths:
+      - path/to/release/*.exe
+  only:
+    variables:
+      - $BUILD_ELECTRON_WINDOWS_APP
 
 heroku-deploy:
   stage: deploy

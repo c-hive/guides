@@ -139,6 +139,8 @@ new Promise(function(resolve, reject) {
 });
 ```
 
+GOOD
+
 ```js
 try {
   throw new Error(JSON.stringify({

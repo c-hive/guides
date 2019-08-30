@@ -25,3 +25,29 @@ As described [here](https://stackoverflow.com/a/14221781/2771889) and [here](htt
   }
 }
 ```
+
+#### Serialize objects when concatenating to strings
+
+GOOD
+
+```js
+const obj = {
+  // ...
+};
+
+console.log("Uh! " + JSON.stringify(obj);
+
+// => Uh! { ... }
+```
+
+BAD
+
+```js
+const obj = {
+  // ...
+};
+
+console.log("Uh! " + obj);
+
+// => Uh! [object Object]
+```

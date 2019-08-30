@@ -25,20 +25,92 @@ BAD
 class ExampleError extends Error {}
 ```
 
-#### Serialize objects in error messages
+#### Do not serialize error classes
 
 GOOD
 
 ```js
-throw new RecordAlreadyExistsError(JSON.stringify(user) + " already exists.");
-// OUTPUT => "user { ... } already exists."
+new Promise(function(resolve, reject) {
+  throw new Error('Uh-oh!');
+}).catch(function(error) {
+  console.error(error);
+});
+
+// => Error: Uh-oh!
+//      at <anonymous>:2:44
+//      at new Promise (<anonymous>)
+//      at <anonymous>:2:1
+//      ...
 ```
 
 BAD
 
 ```js
-console.error(user + " already exists.");
-// OUTPUT => "[object Object] already exists."
+new Promise(function(resolve, reject) {
+  throw new Error('Uh-oh!');
+}).catch(function(error) {
+  console.error(JSON.stringify(error));
+});
+
+// => {}
+```
+
+BAD
+
+```js
+new Promise(function(resolve, reject) {
+  throw new ExampleError('Uh-oh!');
+}).catch(function(error) {
+  console.error(JSON.stringify(error));
+});
+
+// => {"name":"ExampleError"}
+```
+
+#### Serialize objects when wrapping into error classes
+
+Otherwise the message cannot be retreived.
+
+GOOD
+
+```js
+new Promise(function(resolve, reject) {
+  throw new Error(JSON.stringify({
+    message: 'Uh-oh!'
+  }));
+}).catch(function(error) {
+  console.error(error);
+
+  // => Error: {"message":"Uh-oh!"}
+  //      at <anonymous>:68:50
+  //      at new Promise (<anonymous>)
+  //      ...
+
+  console.error("Uh! " + error);
+
+  // => Uh! Error: {"message":"Uh-oh!"}
+});
+```
+
+BAD
+
+```js
+new Promise(function(resolve, reject) {
+  throw new Error({
+    message: 'Uh-oh!'
+  });
+}).catch(function(error) {
+  console.error(error);
+
+  // => Error: [object Object]
+  //      at <anonymous>:58:50
+  //      at new Promise (<anonymous>)
+  //      ...
+
+  console.error("Uh! " + error);
+
+  // => Uh! Error: [object Object]
+});
 ```
 
 #### Define reusable error classes, provide details as error message

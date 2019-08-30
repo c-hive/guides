@@ -1,6 +1,4 @@
-# Firebase / Miscellaneous
-
-## Best practices
+# Firebase / Best practices
 
 #### Deployed functions should return `Promise` when performing asynchronous tasks
 
@@ -62,4 +60,37 @@ exports.getUser = functions.https.onRequest((req, res) => {
 });
 
 // => /getUser?uid=npWxk05ZCKMcYb0OaDSJffYQZZq1
+```
+
+#### Let promises get rejected when handling errors unless there is a fallback strategy
+
+GOOD
+
+```js
+exports.signup = functions.auth.user().onCreate(user =>
+  Model.create(user)
+    .then(() => Service.createCustomer(user))
+    .catch(err => {
+      console.error(JSON.stringify(err));
+
+      // Re-throw the error to fail the Promise explicitly.
+      throw err;
+    })
+);
+
+// => Function execution took 60 ms, finished with status: 'error'
+```
+
+BAD
+
+```js
+exports.signup = functions.auth.user().onCreate(user =>
+  Model.create(user)
+    .then(() => Service.createCustomer(user))
+    .catch(err => {
+      console.error(JSON.stringify(err));
+    })
+);
+
+// => Function execution took 60 ms, finished with status: 'ok'
 ```

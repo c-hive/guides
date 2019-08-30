@@ -52,6 +52,10 @@ Use your best judgement and make exceptions when needed.
 
 [Best practices](electron/best-practices.md)
 
+### Firebase
+
+[Best practices](firebase/best-practices.md)
+
 ## Ruby
 
 [Gem development](ruby/gem.md)
@@ -63,3 +67,5 @@ Use your best judgement and make exceptions when needed.
 ## Etc
 
 [Social media](etc/social-media.md)
+
+[Good Enough™ regexes](etc/regex.md)

@@ -74,6 +74,22 @@ new Promise(function(resolve, reject) {
 //      ...
 ```
 
+GOOD
+
+```js
+try {
+  throw new Error('Uh-oh!');
+} catch(error) {
+  console.error(error);
+}
+
+// => Error: Uh-oh!
+//      at <anonymous>:2:44
+//      at new Promise (<anonymous>)
+//      at <anonymous>:2:1
+//      ...
+```
+
 BAD
 
 ```js
@@ -117,10 +133,29 @@ new Promise(function(resolve, reject) {
   //      at new Promise (<anonymous>)
   //      ...
 
-  console.error("Uh! " + error);
+  console.error('Uh! ' + error);
 
   // => Uh! Error: {"message":"Uh-oh!"}
 });
+```
+
+```js
+try {
+  throw new Error(JSON.stringify({
+    message: 'Uh-oh!'
+  }));
+} catch(error) {
+  console.error(error);
+
+  // => Error: {"message":"Uh-oh!"}
+  //      at <anonymous>:68:50
+  //      at new Promise (<anonymous>)
+  //      ...
+
+  console.error('Uh! ' + error);
+
+  // => Uh! Error: {"message":"Uh-oh!"}
+}
 ```
 
 BAD
@@ -138,13 +173,13 @@ new Promise(function(resolve, reject) {
   //      at new Promise (<anonymous>)
   //      ...
 
-  console.error("Uh! " + error);
+  console.error('Uh! ' + error);
 
   // => Uh! Error: [object Object]
 });
 ```
 
-#### Define reusable error classes, provide details as error message
+#### Define generic purpose error classes, provide details as error message
 
 GOOD
 

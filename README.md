@@ -56,6 +56,10 @@ Use your best judgement and make exceptions when needed.
 
 [Gem development](ruby/gem.md)
 
+## CI
+
+[GitHub Actions best practices](ci/gh-actions.md)
+
 ## Etc
 
 [Social media](etc/social-media.md)

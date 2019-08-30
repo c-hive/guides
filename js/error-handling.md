@@ -25,6 +25,37 @@ BAD
 class ExampleError extends Error {}
 ```
 
+#### Throw Error objects
+
+Otherwise debugging information is lost.
+
+GOOD
+
+```js
+new Promise(function(resolve, reject) {
+  throw new Error('Uh-oh!');
+}).catch(function(error) {
+  console.error(error);
+});
+
+// => Error: Uh-oh!
+//     at <anonymous>:2:9
+//     at new Promise (<anonymous>)
+//     at <anonymous>:1:16
+```
+
+BAD
+
+```js
+new Promise(function(resolve, reject) {
+  throw 'Uh-oh!';
+}).catch(function(error) {
+  console.error(error);
+});
+
+// => Error: Uh-oh!
+```
+
 #### Do not serialize error classes
 
 GOOD
@@ -166,35 +197,4 @@ new Promise(function(resolve, reject) {
 });
 
 // => (node:12977) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Uh-oh!
-```
-
-#### Throw Error objects
-
-Otherwise debugging information is lost.
-
-GOOD
-
-```js
-new Promise(function(resolve, reject) {
-  throw new Error('Uh-oh!');
-}).catch(function(error) {
-  console.error(error);
-});
-
-// => Error: Uh-oh!
-//     at <anonymous>:2:9
-//     at new Promise (<anonymous>)
-//     at <anonymous>:1:16
-```
-
-BAD
-
-```js
-new Promise(function(resolve, reject) {
-  throw 'Uh-oh!';
-}).catch(function(error) {
-  console.error(error);
-});
-
-// => Error: Uh-oh!
 ```

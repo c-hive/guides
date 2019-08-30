@@ -205,7 +205,7 @@ if (userExists(user)) {
 }
 ```
 
-#### Rejected Promises must always be catched and at least logged
+#### Rejected Promises must always be caught and at least logged
 
 Otherwise information might be lost.
 

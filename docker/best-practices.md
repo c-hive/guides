@@ -2,6 +2,8 @@
 
 #### Keep setup in `.docker` folder
 
+*Note: [Heroku doesn't support this](https://stackoverflow.com/questions/57745231/using-a-dockerfile-from-a-subfolder-in-heroku)*
+
 ```yml
 # .docker/docker-compose.yml
 version: '3.7'
@@ -66,7 +68,7 @@ volumes:
 ```Dockerfile
 # .docker/cache.Dockerfile
 FROM ruby:2.6.3
-RUN apt-get update -qq && apt-get install -y netcat
+RUN apt-get update -qq && apt-get install -y netcat-openbsd
 COPY Gemfile* ./
 COPY .docker/cache-entrypoint.sh ./
 RUN chmod +x cache-entrypoint.sh

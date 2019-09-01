@@ -80,7 +80,7 @@ ENTRYPOINT ./cache-entrypoint.sh
 #!/bin/bash
 
 bundle check || bundle install
-nc -l -p 1337
+nc -l -k -p 1337
 ```
 
 ```Dockerfile

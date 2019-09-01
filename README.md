@@ -60,6 +60,10 @@ Use your best judgement and make exceptions when needed.
 
 [Gem development](ruby/gem.md)
 
+## Docker
+
+[Best practices](docker/best-practices.md)
+
 ## CI
 
 [GitHub Actions best practices](ci/gh-actions.md)

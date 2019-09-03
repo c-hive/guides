@@ -1,5 +1,21 @@
 # Docker / Best practices
 
+#### Use .dockerignore and whitelist needed files
+
+```sh
+# Ignore everything
+**
+
+# Allow files and directories
+!/app
+!/COPYRIGHT.txt
+```
+
+See also:
+- https://codefresh.io/docker-tutorial/not-ignore-dockerignore/
+- https://youknowfordevs.com/2018/12/07/getting-control-of-your-dockerignore-files.html
+- https://stackoverflow.com/questions/28097064/dockerignore-ignore-everything-except-a-file-and-the-dockerfile
+
 #### Keep setup in `.docker` folder
 
 *Note: [Heroku doesn't support this](https://stackoverflow.com/questions/57745231/using-a-dockerfile-from-a-subfolder-in-heroku)*

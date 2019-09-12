@@ -2,11 +2,8 @@
 
 - Use [Semantic versioning](http://semver.org/)
 
-## Branches
-- Use separate branches for development and releases/production
-
 ## Releases
-- Tag version, e.g. `v1.3.1`
+- Tag releases with version, e.g. `v1.3.1`
 
 ## Artifacts
 - Name pattern: `<app-name>-<version>-<revision?>-<type?>.<extension>`, e.g.

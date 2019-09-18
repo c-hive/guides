@@ -1,4 +1,4 @@
-# GitHub Actions best practices
+# GitHub Actions / Best practices
 
 #### Specify timeout
 
@@ -18,3 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 ```
+
+#### Add support for skipping CI
+
+https://github.com/actions/bin/issues/39#issuecomment-531562107

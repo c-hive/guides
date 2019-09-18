@@ -68,6 +68,8 @@ Use your best judgement and make exceptions when needed.
 
 [GitHub Actions best practices](ci/gh-actions.md)
 
+[GitHub Actions issues and limitations](ci/gh-actions-issues.md)
+
 ## Etc
 
 [Social media](etc/social-media.md)

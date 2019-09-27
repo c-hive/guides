@@ -82,7 +82,8 @@ heroku-deploy:
       - $HEROKU_APP_NAME
       - $HEROKU_API_KEY
 
-gl-pages-deploy:
+# https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html#job
+pages:
   stage: deploy
   script:
     - yarn run build

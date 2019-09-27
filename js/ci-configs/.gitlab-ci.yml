@@ -87,9 +87,8 @@ pages:
   stage: deploy
   script:
     - yarn run build
+    # Either set the output folder's name to public or move the built folder into public.
     # https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html#the-public-directory
-    # Move the built folder into `public`.
-    - mv <build-folder> public
     - cd public && touch .nojekyll
   artifacts:
     paths:

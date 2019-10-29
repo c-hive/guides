@@ -62,6 +62,8 @@ Use your best judgement and make exceptions when needed.
 
 [Gem development](ruby/gem.md)
 
+[Rubocop](ruby/rubocop.md)
+
 ## Docker
 
 [Best practices](docker/best-practices.md)

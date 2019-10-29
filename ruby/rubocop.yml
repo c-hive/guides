@@ -1,0 +1,74 @@
+require:
+  - rubocop-rspec
+  - rubocop-performance
+  - rubocop-rails
+AllCops:
+  Exclude:
+  - doc/**/*
+  - vendor/**/*
+  - spec/fixtures/**/*
+  - db/schema.rb
+  - bin/*
+  - node_modules/**/*
+
+# Native rules
+
+# Defaults may be too strict or don't always apply
+# Projects should configure custom values when needed
+Metrics/LineLength:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Style/EmptyMethod:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# Don't care
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/BlockComments:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+
+# Keep simpler but longer version
+Style/SymbolArray:
+  Enabled: true
+  EnforcedStyle: brackets
+
+# Enforce double quotes to make interpolation easier
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Enable trailing commas to make diffs better
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+
+# RSpec rules
+
+# Defaults may be too strict or don't always apply
+# Projects should configure custom values when needed
+RSpec/ExampleLength:
+  Enabled: false
+
+# Don't care
+RSpec/MessageSpies:
+  Enabled: false

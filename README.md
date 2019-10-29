@@ -18,6 +18,8 @@ Use your best judgement and make exceptions when needed.
 
 [Versioning and releases](universal/versioning-and-releases.md)
 
+[README template](universal/readme_template.md)
+
 ## JS
 
 [Package development](js/package.md)

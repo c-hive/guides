@@ -1,0 +1,14 @@
+require:
+  - rubocop-rspec
+AllCops:
+  Exclude:
+  - spec/fixtures/**/*
+
+# Defaults may be too strict or don't always apply
+# Projects should configure custom values when needed
+RSpec/ExampleLength:
+  Enabled: false
+
+# Don't care
+RSpec/MessageSpies:
+  Enabled: false

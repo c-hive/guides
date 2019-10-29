@@ -1,0 +1,10 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+  - doc/**/*
+  - vendor/**/*
+  - db/schema.rb
+  - bin/*
+  - node_modules/**/*

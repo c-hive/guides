@@ -1,17 +1,8 @@
 require:
-  - rubocop-rspec
   - rubocop-performance
-  - rubocop-rails
 AllCops:
   Exclude:
   - doc/**/*
-  - vendor/**/*
-  - spec/fixtures/**/*
-  - db/schema.rb
-  - bin/*
-  - node_modules/**/*
-
-# Native rules
 
 # Defaults may be too strict or don't always apply
 # Projects should configure custom values when needed
@@ -60,15 +51,3 @@ Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: consistent_comma
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
-
-
-# RSpec rules
-
-# Defaults may be too strict or don't always apply
-# Projects should configure custom values when needed
-RSpec/ExampleLength:
-  Enabled: false
-
-# Don't care
-RSpec/MessageSpies:
-  Enabled: false

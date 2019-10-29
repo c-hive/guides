@@ -1,4 +1,4 @@
-# Ruby / Gem development
+# Ruby / Rubocop
 
 Rubocop base configs:
 - [rubocop.yml](rubocop.yml)

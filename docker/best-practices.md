@@ -69,7 +69,7 @@ services:
   cache:
     build:
       context: ../
-      dockerfile: .docker/bundle.Dockerfile
+      dockerfile: .docker/cache.Dockerfile
     volumes:
       - bundle:/bundle
     environment:

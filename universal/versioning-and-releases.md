@@ -6,7 +6,7 @@
 - Tag releases with version, e.g. `v1.3.1`
 
 ## Artifacts
-- Name pattern: `<app-name>-<revision>-<type?>.<extension>`, e.g.
+- Name pattern: `<app-name>-<version>-<revision?>-<type?>.<extension>`, e.g.
   - `my-app-v0.0.1.exe`
   - `my-app-v1.3.1-setup.exe`
   - `my-app-v2.0.0-5-standalone.exe`

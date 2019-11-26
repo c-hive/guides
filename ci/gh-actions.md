@@ -25,7 +25,7 @@ https://github.com/actions/bin/issues/39#issuecomment-531562107
 
 #### Print current ref
 
-At the moment, when using `on: [push]` [it's not possible to distingish an on-tag-push build from an on-commit-push build](https://github.community/t5/GitHub-Actions/Differentiate-between-tag-and-non-tag-builds/m-p/39540). There can be additional actions on a tag build, such as releasing. To make the difference clear in the logs, add a step to the current ref.
+At the moment, when using `on: [push]` [it's not possible to distingish an on-tag-push build from an on-commit-push build](https://github.community/t5/GitHub-Actions/Differentiate-between-tag-and-non-tag-builds/m-p/39540). There can be additional actions on a tag build, such as releasing. To make the difference clear in the logs, add a step to print the current ref.
 
 GOOD
 

@@ -28,7 +28,7 @@ jobs:
   test:
     name: Build and test
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
 ```
 
 #### Print current ref

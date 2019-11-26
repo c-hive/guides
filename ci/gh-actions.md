@@ -46,6 +46,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: Print ref
+    - name: Show current ref
       run: echo ${{ github.ref }}
 ```

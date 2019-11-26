@@ -21,7 +21,15 @@ jobs:
 
 #### Add support for skipping CI
 
-https://github.com/actions/bin/issues/39#issuecomment-531562107
+GOOD
+
+```yml
+jobs:
+  test:
+    name: Build and test
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+```
 
 #### Print current ref
 

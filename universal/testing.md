@@ -67,6 +67,18 @@ Should be used
 
 Could be used
 - to avoid testing code _written for the project_ which is not the subject of the test
+- to avoid indeterminate functionality
+
+GOOD
+
+```
+it "creates user with a unique key" do
+  key = 'dummy_unique'
+  allow(UniqueGenrator).to receive(:hex).and_return(key)
+  
+  expect(User.create.key).to eq(key)
+end
+```
 
 Should _not_ be used
 - unless there's a reason to use them (a.k.a. this is not the default approach to testing)

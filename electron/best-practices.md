@@ -14,9 +14,9 @@ ipcRenderer.sendSync("event-key");
 ipcMain.on("event-key", event => {});
 ```
 
-#### Subscribe main's process listeners as soon as it's ready
+#### Subscribe main's event listeners as soon as possible
 
-This way the channels are up and initial requests from renderer won't be absorbed.
+This way the messages won't get lost.
 
 ```js
 app.on("ready", () => {

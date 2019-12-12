@@ -59,3 +59,58 @@ Best practices include
 - resetting mocks between tests
 
 It is enforced by running tests isolated or in a randomized order.
+
+### Mocking / stubbing / spying
+
+Should be used
+- to skip unreliable / slow parts of the code (e.g. network requests)
+
+Could be used
+- to avoid testing code _written for the project_ which is not the subject of the test
+- to avoid indeterminate functionality
+
+GOOD
+
+```
+it "creates user with a unique key" do
+  key = 'dummy_unique'
+  allow(UniqueGenrator).to receive(:hex).and_return(key)
+  
+  expect(User.create.key).to eq(key)
+end
+```
+
+Should _not_ be used
+- unless there's a reason to use them (a.k.a. this is not the default approach to testing)
+- to skip 3rd party code (e.g. DB, framework)
+- as a replacement for verifying return values
+
+GOOD
+
+```
+get :index
+expect(response).to be_successful
+```
+
+BAD
+
+```
+expect(response).to receive(:send_status).with(200)
+get :index
+```
+
+- as a replacement for verifying side effects
+
+GOOD
+
+```
+deleteUser(id)
+expect(User.find(id)).not_to be
+```
+
+BAD
+
+```
+expect(User).to receive(:delete).with(id)
+deleteUser(id)
+```

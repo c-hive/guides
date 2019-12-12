@@ -31,10 +31,6 @@ on:
     - '/^v[0-9]\.[0-9]\.[0-9]$/'
 ```
 
-#### Cannot cache between jobs and workflows
-
-Would be useful for caching dependencies for example. Expected to be implemented by by mid-November. See also: https://github.community/t5/GitHub-Actions/Caching-files-between-GitHub-Action-executions/m-p/30974/highlight/true#M630
-
 #### Cannot specify dependencies between workflows
 
 This would allow for organizing workflows. For example the workflow `publish` would depend on the workflow `verify`, both of which have their set of jobs. You're left with either a single workflow (uncomfortably named something generic like `CI`) within which jobs can have the proper dependencies, or multiple workflows where certain steps are duplicated (e.g. you always want to run tests before publishing).

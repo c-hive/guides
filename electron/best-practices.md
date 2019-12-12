@@ -13,3 +13,15 @@ ipcRenderer.sendSync("event-key");
 // main
 ipcMain.on("event-key", event => {});
 ```
+
+#### Subscribe main's event listeners as soon as possible
+
+This way the messages won't get lost.
+
+```js
+app.on("ready", () => {
+    subscribeListeners();
+
+    // ...
+});
+```

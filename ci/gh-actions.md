@@ -21,4 +21,31 @@ jobs:
 
 #### Add support for skipping CI
 
-https://github.com/actions/bin/issues/39#issuecomment-531562107
+GOOD
+
+```yml
+jobs:
+  test:
+    name: Build and test
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+```
+
+#### Print current ref
+
+At the moment, when using `on: [push]` [it's not possible to distingish an on-tag-push build from an on-commit-push build](https://github.community/t5/GitHub-Actions/Differentiate-between-tag-and-non-tag-builds/m-p/39540). There can be additional actions on a tag build, such as releasing. In this case, to make the difference clear in the logs, add a step to print the current ref.
+
+GOOD
+
+```yml
+name: Verify
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Show current ref
+      run: echo ${{ github.ref }}
+```

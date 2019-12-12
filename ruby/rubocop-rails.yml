@@ -8,3 +8,9 @@ AllCops:
   - db/schema.rb
   - bin/*
   - node_modules/**/*
+
+# DB optimization which is not always needed
+# On the other hand the rule is sometimes problematic:
+# https://github.com/rubocop-hq/rubocop-rails/issues/161
+Rails/BulkChangeTable:
+  Enabled: false

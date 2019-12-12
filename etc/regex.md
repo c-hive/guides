@@ -2,6 +2,7 @@
 
 - use non-capturing groups for [performance reasons](https://stackoverflow.com/questions/33243292/capturing-group-vs-non-capturing-group)
 - [avoid greedy matching](https://mariusschulz.com/blog/why-using-the-greedy-in-regular-expressions-is-almost-never-what-you-actually-want): use lazy matching and avoid "any" matchers
+- [lookbehinds are only supported in the ECMA2018 standard](https://stackoverflow.com/a/50011952/2771889), at the moment the  browser support is very limited
 
 ## URLs
 
@@ -44,7 +45,7 @@ Regex for the practical use case:
 
 `^(?!.*?_.*?)(?!(?:[\d\w]+?\.)?\-[\w\d\.\-]*?)(?![\w\d]+?\-\.(?:[\d\w\.\-]+?))(?=[\w\d])(?=[\w\d\.\-]*?\.+[\w\d\.\-]*?)(?![\w\d\.\-]{254})(?!(?:\.?[\w\d\-\.]*?[\w\d\-]{64,}\.)+?)[\w\d\.\-]+?(?<![\w\d\-\.]*?\.[\d]+?)(?<=[\w\d\-]{2,})(?<![\w\d\-]{25})$`
 
-https://regex101.com/r/FLA9Bv/9
+https://regex101.com/r/FLA9Bv/9 (_Note: currently only works in Chrome because the regex uses lookbehinds which are only supported in ECMA2018_)
 
 See also: [TLD limitations](https://stackoverflow.com/questions/7411255/is-it-possible-to-have-one-single-character-top-level-domain-name), [domain limitations](https://stackoverflow.com/questions/32290167/what-is-the-maximum-length-of-a-dns-name/32294443), [list of TLDs](http://data.iana.org/TLD/tlds-alpha-by-domain.txt), [by-the-books regex and explanation](https://regexr.com/3g5j0)
 
@@ -58,4 +59,4 @@ Extracts valid arguments from comma-separated argument list, supporting double-q
 
 `(?<=")[^"]+?(?="(?:\s*?,|\s*?$))|(?<=(?:^|,)\s*?)(?:[^,"\s][^,"]*[^,"\s])|(?:[^,"\s])(?![^"]*?"(?:\s*?,|\s*?$))(?=\s*?(?:,|$))`
 
-https://regex101.com/r/UL8kyy/3/tests
+https://regex101.com/r/UL8kyy/3/tests (_Note: currently only works in Chrome because the regex uses lookbehinds which are only supported in ECMA2018_)

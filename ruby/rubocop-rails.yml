@@ -10,7 +10,9 @@ AllCops:
   - node_modules/**/*
 
 # DB optimization which is not always needed
-# On the other hand the rule is sometimes problematic:
-# https://github.com/rubocop-hq/rubocop-rails/issues/161
+# `change_table`'s `remove_column` and `change_column` are not well documented and not reversible, which trigger the `Rails/ReversibleMigration` cop and in the end lead to hard-to-read code
+# See also:
+#   - https://github.com/rubocop-hq/rubocop-rails/issues/161
+#   - https://www.rubydoc.info/gems/rubocop/0.47.1/RuboCop/Cop/Rails/ReversibleMigration
 Rails/BulkChangeTable:
   Enabled: false

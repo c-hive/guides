@@ -7,3 +7,5 @@
 #### Use to keep data between component re-renders
 
 #### Use with state-management hooks to create a dynamically updatable data-storage system
+
+#### Fail fast in case the context is used outside the provider

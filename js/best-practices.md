@@ -26,6 +26,24 @@ As described [here](https://stackoverflow.com/a/14221781/2771889) and [here](htt
 }
 ```
 
+#### Specify `npm` version requirements to avoid `package-lock` ping-pong
+
+See: https://stackoverflow.com/a/55373854/2771889
+
+`package.json`
+```json
+{
+  "engines": {
+    "npm": ">=6.6"
+  }
+}
+```
+
+`.npmrc`
+```
+engine-strict=true
+```
+
 #### Serialize objects when concatenating to strings
 
 GOOD

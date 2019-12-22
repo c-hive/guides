@@ -18,6 +18,8 @@ Packages [only include](https://docs.npmjs.com/misc/developers#keeping-files-out
 
 ## ESM?
 
+Update 2019-10-22: [this 2ality post](https://2ality.com/2019/10/hybrid-npm-packages.html) explains the possibilities of publishing hybrid NPM packages. Library will have to be tested.
+
 TLDR; no ESM.
 
 There are [many ways](https://github.com/transitive-bullshit/npm-es-modules) to interpret ES Modules, e.g. [esm](https://github.com/standard-things/esm), Node's native experimental support ([1](http://2ality.com/2017/09/native-esm-node.html), [2](http://2ality.com/2018/12/nodejs-esm-phases.html), [3](http://2ality.com/2019/04/nodejs-esm-impl.html)) or webpack ([1](https://medium.com/webpack/webpack-4-released-today-6cdb994702d4), [2](https://webpack.js.org/concepts/modules)). The common convention for declaring them is to use the `.mjs` extension for ESM files and `.js` (or `.cjs`) for CommonJS files.

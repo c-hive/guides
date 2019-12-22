@@ -40,6 +40,8 @@ Use your best judgement and make exceptions when needed.
 
 [Way of working](react/way-of-working.md)
 
+[Best practices](react/best-practices.md)
+
 ### Node.js
 
 [File structure and naming](node/file-structure-naming.md)

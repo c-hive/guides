@@ -26,7 +26,7 @@ const { someData: foo, someOtherData: bar } = useData();
 
 BAD
 
-This way when using the hook, the order of variables would matter.
+This way when using the hook, the order and number of variables would matter.
 
 ```js
 export const useData = () => {

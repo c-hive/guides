@@ -22,6 +22,8 @@ Use your best judgement and make exceptions when needed.
 
 ## JS
 
+[Project boilerplate](https://github.com/c-hive/js-boilerplate)
+
 [Package development](js/package.md)
 
 [Error handling](js/error-handling.md)

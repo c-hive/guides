@@ -7,7 +7,7 @@
 GOOD
 
 ```js
-export const useData = () => {
+const useData = () => {
   const [someData, setSomeData] = useState();
   const [someOtherData, setSomeOtherData] = useState();
 
@@ -16,6 +16,12 @@ export const useData = () => {
     someOtherData,
   };
 };
+
+// Usage
+const { someData, someOtherData } = useData();
+const { someOtherData, someData } = useData();
+const { someOtherData } = useData();
+const { someData: foo, someOtherData: bar } = useData();
 ```
 
 BAD

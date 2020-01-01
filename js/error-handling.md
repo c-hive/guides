@@ -56,7 +56,75 @@ new Promise(function(resolve, reject) {
 // => Error: Uh-oh!
 ```
 
-#### Do not serialize error classes
+#### Pass strings to Error constructors
+
+Objects passed are converted to strings and can be lost.
+
+GOOD
+
+```js
+new Promise(function(resolve, reject) {
+  throw new Error('Uh-oh!');
+}).catch(function(error) {
+  console.error(error);
+});
+
+// => Error: Uh-oh!
+//     at <anonymous>:2:9
+//     at new Promise (<anonymous>)
+//     at <anonymous>:1:16
+```
+
+BAD
+
+```js
+new Promise(function(resolve, reject) {
+  throw new Error({
+    message: 'Uh-oh!'
+  });
+}).catch(function(error) {
+  console.error(error);
+});
+
+  // => Error: [object Object]
+  //      at <anonymous>:58:50
+  //      at new Promise (<anonymous>)
+  //      ...
+```
+
+```js
+new Promise(function(resolve, reject) {
+  throw new Error({
+    message: 'Uh-oh!'
+  });
+}).catch(function(error) {
+  console.error(JSON.stringify(error.message));
+});
+
+  // => "[object Object]"
+```
+
+#### Do not concatenate error logs with other objects
+
+GOOD
+
+```js
+new Promise(function(resolve, reject) {
+  throw new Error('Uh-oh!');
+}).catch(function(error) {
+  console.error('Error during something:');
+  console.error(error);
+});
+
+// => Error during something:
+//    Error: Uh-oh!
+//      at <anonymous>:2:44
+//      at new Promise (<anonymous>)
+//      at <anonymous>:2:1
+//      ...
+```
+
+#### Log error objects as-is
 
 GOOD
 
@@ -72,6 +140,17 @@ new Promise(function(resolve, reject) {
 //      at new Promise (<anonymous>)
 //      at <anonymous>:2:1
 //      ...
+```
+
+
+```js
+new Promise(function(resolve, reject) {
+  throw { message: 'Uh-oh!' };
+}).catch(function(error) {
+  console.error(error);
+});
+
+// => Object { message: "Uh-oh!" }
 ```
 
 GOOD
@@ -112,99 +191,6 @@ new Promise(function(resolve, reject) {
 });
 
 // => {"name":"ExampleError"}
-```
-
-#### Serialize objects when wrapping into error classes
-
-Otherwise the message cannot be retreived.
-
-GOOD
-
-```js
-new Promise(function(resolve, reject) {
-  throw new Error(JSON.stringify({
-    message: 'Uh-oh!'
-  }));
-}).catch(function(error) {
-  console.error(error);
-
-  // => Error: {"message":"Uh-oh!"}
-  //      at <anonymous>:68:50
-  //      at new Promise (<anonymous>)
-  //      ...
-
-  console.error('Uh! ' + error);
-
-  // => Uh! Error: {"message":"Uh-oh!"}
-});
-```
-
-GOOD
-
-```js
-try {
-  throw new Error(JSON.stringify({
-    message: 'Uh-oh!'
-  }));
-} catch(error) {
-  console.error(error);
-
-  // => Error: {"message":"Uh-oh!"}
-  //      at <anonymous>:68:50
-  //      at new Promise (<anonymous>)
-  //      ...
-
-  console.error('Uh! ' + error);
-
-  // => Uh! Error: {"message":"Uh-oh!"}
-}
-```
-
-BAD
-
-```js
-new Promise(function(resolve, reject) {
-  throw new Error({
-    message: 'Uh-oh!'
-  });
-}).catch(function(error) {
-  console.error(error);
-
-  // => Error: [object Object]
-  //      at <anonymous>:58:50
-  //      at new Promise (<anonymous>)
-  //      ...
-
-  console.error('Uh! ' + error);
-
-  // => Uh! Error: [object Object]
-});
-```
-
-#### Define generic purpose error classes, provide details as error message
-
-GOOD
-
-```js
-class RecordAlreadyExistsError extends Error {
-  // ...
-}
-
-if (userExists(user)) {
-  throw new RecordAlreadyExistsError(JSON.stringify(user) + " already exists.");
-}
-```
-
-BAD
-
-```js
-class UserError extends Error {
-  // ...
-}
-
-if (userExists(user)) {
-  throw new UserError("Already exists.");
-}
 ```
 
 #### Rejected Promises must always be caught and at least logged

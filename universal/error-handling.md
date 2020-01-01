@@ -164,6 +164,32 @@ createUser(err => {
 };
 ```
 
+#### Define generic purpose error classes, provide details as error message
+
+GOOD
+
+```js
+class RecordAlreadyExistsError extends Error {
+  // ...
+}
+
+if (userExists(user)) {
+  throw new RecordAlreadyExistsError(JSON.stringify(user) + " already exists.");
+}
+```
+
+BAD
+
+```js
+class UserError extends Error {
+  // ...
+}
+
+if (userExists(user)) {
+  throw new UserError("Already exists.");
+}
+```
+
 #### Use proper error codes
 
 GOOD

@@ -1,18 +1,14 @@
 # Javascript / Best practices
 
-#### Avoid impure exports
+#### Avoid exporting an object for the purpose of exporting its properties
 
-If imports are not pure (not without side effects) [tree-shaking](https://webpack.js.org/guides/tree-shaking/) and faster access to imports are lost. See also:
+[Axel Rauschmayer](https://medium.com/@rauschma/note-that-default-exporting-objects-is-usually-an-anti-pattern-if-you-want-to-export-the-cf674423ac38):
+> Note that default-exporting objects is usually an anti-pattern (if you want to export the properties). You lose some ES6 module benefits ([tree-shaking](https://webpack.js.org/guides/tree-shaking/) and [faster access to imports](https://2ality.com/2014/09/es6-modules-final.html#benefit-1%3A-faster-lookup)).
+
+Instead, prefer breaking up the code into separate default exported modules or use named exports. See also:
 - https://geedew.com/es6-module-gotchas/
-- https://medium.com/@rauschma/note-that-default-exporting-objects-is-usually-an-anti-pattern-if-you-want-to-export-the-cf674423ac38
-
-BAD
-
-```js
-export default new Store();
-```
-
-This would technically be a Singleton because [ES6 modules are only evaluated once](https://stackoverflow.com/questions/36564901/in-the-import-syntax-of-es6-how-is-a-module-evaluated-exactly). Instead, prefer default exporting a class that implements the Singleton pattern.
+- https://github.com/airbnb/javascript/issues/710#issuecomment-297840604
+- https://2ality.com/2014/09/es6-modules-final.html#default-exports-are-favored
 
 BAD
 
@@ -20,34 +16,34 @@ BAD
 export default { a, b, c };
 ```
 
-Instead, prefer breaking up the code into separate default exported modules or use named exports. See also:
-- https://geedew.com/es6-module-gotchas/
-- https://esdiscuss.org/topic/moduleimport#content-0
-- https://github.com/airbnb/javascript/issues/710
+#### Avoid exporting mutable objects and mutating imported objects
 
-GOOD
+https://geedew.com/es6-module-gotchas/
+> ES6 modules were designed with a static module structure preferred. This allows the code to be able to discover the import/export values at compile time rather than runtime. Exporting an object from a module allows for unexpected situations and removes the static compilation benefits.
 
-The right way of Singleton export.
+Note that [functions are technically mutable Objects](https://stackoverflow.com/a/2136691/2771889) but "oh, well".
+
+See also:
+- https://2ality.com/2014/09/es6-modules-final.html#static-module-structure
+- http://calculist.org/blog/2012/06/29/static-module-resolution/
+- [All exports are static](https://stackoverflow.com/questions/35035304/what-qualifies-as-being-a-dynamic-export-in-es6)
+
+#### Avoid executing code in export, unless required
+
+- [All exports are static](https://stackoverflow.com/questions/35035304/what-qualifies-as-being-a-dynamic-export-in-es6)
+- [ES6 modules are only evaluated once](https://stackoverflow.com/questions/36564901/in-the-import-syntax-of-es6-how-is-a-module-evaluated-exactly) so the module would be a Singleton (this isn't a proper way to create a Singleton though)
+- Makes imports slow and possible to cause side-effetcs
+
+BAD
 
 ```js
-export default class Store { /* insert singleton pattern */ };
+export default someModule();
 ```
 
 GOOD
 
 ```js
-export default () => { /*...*/ };
-```
-
-GOOD
-
-```js
-
-const func = () => {
-  // ...
-};
-
-export default func;
+export default () => { someModule() };
 ```
 
 #### Comment dependencies in the `package.json`

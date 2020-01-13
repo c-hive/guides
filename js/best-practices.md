@@ -27,11 +27,13 @@ See also:
 - [All exports are static](https://stackoverflow.com/questions/35035304/what-qualifies-as-being-a-dynamic-export-in-es6)
 - Note that [functions are technically mutable Objects](https://stackoverflow.com/a/2136691/2771889) but exporting them is obviously fine
 
-#### Avoid executing code in export, unless required
+#### Avoid exporting an evaluation
 
+In this case the module exports the result which is only evaluated once. This is rarely the desired outcome, but if it is, a Singleton pattern should be used instead. [Some ES6 module benefits](#avoid-exporting-an-object-for-the-purpose-of-exporting-its-properties) are lost, it makes imports slower and makes them possible to cause side-effects while all of these can be avoided via exporting a function or class.
+
+See also:
 - [All exports are static](https://stackoverflow.com/questions/35035304/what-qualifies-as-being-a-dynamic-export-in-es6)
-- [ES6 modules are only evaluated once](https://stackoverflow.com/questions/36564901/in-the-import-syntax-of-es6-how-is-a-module-evaluated-exactly) so the module would be a Singleton (this isn't a proper way to create a Singleton though)
-- Makes imports slow and possible to cause side-effetcs
+- [ES6 modules are only evaluated once](https://stackoverflow.com/questions/36564901/in-the-import-syntax-of-es6-how-is-a-module-evaluated-exactly)
 
 BAD
 
@@ -40,6 +42,10 @@ export default someModule();
 ```
 
 GOOD
+
+```js
+export default someModule;
+```
 
 ```js
 export default () => { someModule() };

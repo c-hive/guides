@@ -1,6 +1,6 @@
 # Javascript / Best practices
 
-#### Avoid inpure exports
+#### Avoid impure exports
 
 If imports are not pure (not without side effects) [tree-shaking](https://webpack.js.org/guides/tree-shaking/) and faster access to imports are lost. See also:
 - https://geedew.com/es6-module-gotchas/

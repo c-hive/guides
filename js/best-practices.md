@@ -21,12 +21,11 @@ export default { a, b, c };
 https://geedew.com/es6-module-gotchas/
 > ES6 modules were designed with a static module structure preferred. This allows the code to be able to discover the import/export values at compile time rather than runtime. Exporting an object from a module allows for unexpected situations and removes the static compilation benefits.
 
-Note that [functions are technically mutable Objects](https://stackoverflow.com/a/2136691/2771889) but "oh, well".
-
 See also:
 - https://2ality.com/2014/09/es6-modules-final.html#static-module-structure
 - http://calculist.org/blog/2012/06/29/static-module-resolution/
 - [All exports are static](https://stackoverflow.com/questions/35035304/what-qualifies-as-being-a-dynamic-export-in-es6)
+- Note that [functions are technically mutable Objects](https://stackoverflow.com/a/2136691/2771889) but exporting them is obviously fine
 
 #### Avoid executing code in export, unless required
 

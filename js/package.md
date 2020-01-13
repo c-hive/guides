@@ -18,6 +18,8 @@ Packages [only include](https://docs.npmjs.com/misc/developers#keeping-files-out
 
 ## ESM?
 
+Update 2020-01-13: Mocha released experimental support in `mocha@7.0.0-esm1`
+
 Update 2019-10-22: [this 2ality post](https://2ality.com/2019/10/hybrid-npm-packages.html) explains the possibilities of publishing hybrid NPM packages. Library support will have to be tested.
 
 TLDR; no ESM.

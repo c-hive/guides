@@ -29,7 +29,9 @@ See also:
 
 #### Avoid exporting an evaluation
 
-In this case the module exports the result which is only evaluated once. This is rarely the desired outcome, but if it is, a Singleton pattern should be used instead. [Some ES6 module benefits](#avoid-exporting-an-object-for-the-purpose-of-exporting-its-properties) are lost, it makes imports slower and makes them possible to cause side-effects while all of these can be avoided via exporting a function or class.
+In this case the module exports the result which is only evaluated once. This is rarely the desired outcome, but if it is, a Singleton pattern should be used instead. [Some ES6 module benefits](#avoid-exporting-an-object-for-the-purpose-of-exporting-its-properties) are lost, it makes imports slower and makes them possible to cause side-effects which should rather happen upon invocation.
+
+Instead, export a function or class.
 
 See also:
 - [All exports are static](https://stackoverflow.com/questions/35035304/what-qualifies-as-being-a-dynamic-export-in-es6)

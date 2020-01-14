@@ -16,6 +16,27 @@ BAD
 export default { a, b, c };
 ```
 
+GOOD
+
+```js
+export a;
+export b;
+export c;
+```
+
+GOOD
+
+```js
+// a.js
+export default a;
+
+// b.js
+export default b;
+
+// c.js
+export default c;
+```
+
 #### Avoid exporting mutable objects and mutating imported objects
 
 https://geedew.com/es6-module-gotchas/

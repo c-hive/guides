@@ -104,26 +104,6 @@ new Promise(function(resolve, reject) {
   // => "[object Object]"
 ```
 
-#### Do not concatenate error logs with other objects
-
-GOOD
-
-```js
-new Promise(function(resolve, reject) {
-  throw new Error('Uh-oh!');
-}).catch(function(error) {
-  console.error('Error during something:');
-  console.error(error);
-});
-
-// => Error during something:
-//    Error: Uh-oh!
-//      at <anonymous>:2:44
-//      at new Promise (<anonymous>)
-//      at <anonymous>:2:1
-//      ...
-```
-
 #### Log error objects as-is
 
 GOOD

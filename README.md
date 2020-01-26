@@ -82,4 +82,6 @@ Use your best judgement and make exceptions when needed.
 
 [Social media](etc/social-media.md)
 
+[Design resources](etc/design-resources.md)
+
 [Good Enough™ regexes](etc/regex.md)

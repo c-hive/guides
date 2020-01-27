@@ -1,5 +1,33 @@
 # Docker / Best practices
 
+#### Combine non-hanging entrypoints with docker-compose commands
+
+When using `docker-compose` use `ENTRYPOINT` to ensure that the container is ready to use and use `command` to start the process. This way the entrypoint doesn't hang and it's possibly to also `run` other commands by hand.
+
+`Dockerfile`
+```Dockerfile
+COPY . ./
+RUN chmod +x .docker/web-entrypoint.sh
+ENTRYPOINT [".docker/web-entrypoint.sh"]
+```
+
+`.docker/web-entrypoint.sh`
+```sh
+wait_for-it db:5432
+exec "$@"
+```
+
+`docker-compose.yml`
+```sh
+services:
+  web:
+    command: 'bin/rails server'
+```
+
+Note that
+- if using `ENTRYPOINT .docker/web-entrypoint.sh`, `exec "$@"` won't work
+- if `bin/rails server` would be in `web-entrypoint.sh`, executing commands via `docker-compose run` would not be possible
+
 #### Use .dockerignore and whitelist needed files
 
 ```sh

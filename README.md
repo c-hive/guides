@@ -72,6 +72,8 @@ Use your best judgement and make exceptions when needed.
 
 [Best practices](docker/best-practices.md)
 
+[Services](docker/services.md)
+
 ## CI
 
 [GitHub Actions best practices](ci/gh-actions.md)

@@ -51,7 +51,7 @@ See also: [TLD limitations](https://stackoverflow.com/questions/7411255/is-it-po
 
 ## Semantic version
 
-`^v[0-9]\.[0-9]\.[0-9]$`
+`^v[0-9]+\.[0-9]+\.[0-9]+$`
 
 ## Argument list
 

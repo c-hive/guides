@@ -39,3 +39,39 @@ export const useData = () => {
   ];
 };
 ```
+
+### Contenxts
+
+#### Use `reduce()` to combine multiple providers and enhance readibility
+
+Keep in mind the caveat that the order of the arguments does matter. In other words, the outermost provider should be the last argument to make the structure identical to the regular usage.
+
+GOOD
+
+```js
+const combineProviders = (...providers) => ({ children }) =>
+  providers.reduce(
+    (prev, CurrentProvider) => <CurrentProvider>{prev}</CurrentProvider>,
+    children
+  );
+
+const CombinedProviders = combineProviders(
+  <AuthProvider>,
+  <NavProvider>,
+  <AppProvider>
+);
+```
+
+BAD
+
+```js
+const CombinedProviders = ({ children }) => (
+  <AppProvider>
+    <NavProvider>
+      <AuthProvider>
+        {children}
+      </AuthProvider>
+    </NavProvider>
+  </AppProvider>
+);
+```

@@ -44,7 +44,7 @@ export const useData = () => {
 
 #### Use `reduce()` to combine multiple providers and enhance readibility
 
-Keep in mind the caveat that the order of the arguments does matter. In other words, the order is reversed as opposed to the regular usage.
+Keep in mind the caveat that the order of the arguments is reversed as opposed to the regular usage.
 
 GOOD
 

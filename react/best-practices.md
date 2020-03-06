@@ -40,7 +40,7 @@ export const useData = () => {
 };
 ```
 
-### Contenxts
+### Contexts
 
 #### Use `reduce()` to combine multiple providers and enhance readibility
 

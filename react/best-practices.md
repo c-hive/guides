@@ -58,6 +58,7 @@ const combineProviders = (...providers) => ({ children }) =>
 const CombinedProviders = combineProviders(
   <AuthProvider>,
   <NavProvider>,
+  <CookiesProvider>,
   <AppProvider>
 );
 ```
@@ -67,11 +68,13 @@ BAD
 ```js
 const CombinedProviders = ({ children }) => (
   <AppProvider>
-    <NavProvider>
-      <AuthProvider>
-        {children}
-      </AuthProvider>
-    </NavProvider>
+    <CookiesProvider>
+      <NavProvider>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </NavProvider>
+    </CookiesProvider>
   </AppProvider>
 );
 ```

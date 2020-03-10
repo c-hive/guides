@@ -25,8 +25,29 @@ services:
 ```
 
 Note that
-- if using `ENTRYPOINT .docker/web-entrypoint.sh`, `exec "$@"` won't work
+- if using `ENTRYPOINT .docker/web-entrypoint.sh`, `exec "$@"` won't work, instead use `ENTRYPOINT [".docker/web-entrypoint.sh"]`
 - if `bin/rails server` would be in `web-entrypoint.sh`, executing commands via `docker-compose run` would not be possible
+
+#### Do not put 1-time setup in entrypoint
+
+It would run every time.
+
+GOOD
+
+`.docker/web-entrypoint.sh`
+```sh
+wait_for-it db:5432
+exec "$@"
+```
+
+BAD
+
+`.docker/web-entrypoint.sh`
+```sh
+wait_for-it db:5432
+rake db:seed
+exec "$@"
+```
 
 #### Use .dockerignore and whitelist needed files
 

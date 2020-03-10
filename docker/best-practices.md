@@ -30,7 +30,7 @@ Note that
 
 #### Do not put 1-time setup in entrypoint
 
-It would run every time.
+It would run every time, even if running `docker run`.
 
 GOOD
 

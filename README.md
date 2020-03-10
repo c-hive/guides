@@ -68,6 +68,10 @@ Use your best judgement and make exceptions when needed.
 
 [Rubocop](ruby/rubocop.md)
 
+## Rails
+
+[Best practices](rails/best-practices.md)
+
 ## Docker
 
 [Best practices](docker/best-practices.md)

@@ -62,6 +62,8 @@ try {
 } catch (err) {
   core.setFailed(err.toString());
 }
+
+// => ::error::HttpError: Not Found
 ```
 
 BAD

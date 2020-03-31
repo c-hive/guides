@@ -49,3 +49,29 @@ jobs:
     - name: Show current ref
       run: echo ${{ github.ref }}
 ```
+
+#### Stringify objects when using `core.*` utilities to output logs
+
+Objects are [expected to be supported](https://github.com/actions/toolkit/issues/386) sooner or later.
+
+GOOD
+
+```js
+try {
+  await run();
+} catch (err) {
+  core.setFailed(err.toString());
+}
+```
+
+BAD
+
+```js
+try {
+  await run();
+} catch (err) {
+  core.setFailed(err);
+}
+
+// => UnhandledPromiseRejectionWarning: TypeError: (s || "").replace is not a function
+```

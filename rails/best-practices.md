@@ -47,7 +47,3 @@ GOOD
 after_create_commit -> { foo }
 after_update_commit -> { foo }
 ```
-
-See:
-- https://github.com/rubocop-hq/rubocop-rails/issues/52
-

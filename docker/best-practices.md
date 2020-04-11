@@ -37,6 +37,7 @@ GOOD
 `.docker/web-entrypoint.sh`
 ```sh
 wait_for-it db:5432
+rake db:prepare # Only seeds DB if it had to be created
 exec "$@"
 ```
 

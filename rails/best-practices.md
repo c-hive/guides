@@ -25,3 +25,29 @@ Rails.application.configure do
   config.i18n.exception_handler = I18n::RaiseExceptionHandler.new
 end
 ```
+
+#### Use lambda literals for consecutive `after_commit` hooks
+
+There can only be a single `after_commit` hook defined for a model with the exception of using lambda literals. See also:
+- https://github.com/rubocop-hq/rubocop-rails/issues/52
+- https://github.com/rails/rails/issues/19590
+- https://github.com/rails/rails/issues/29554
+
+BAD
+```ruby
+after_create_commit :log_create
+after_update_commit :log_update
+
+after_commit :callback, :on => :create
+after_commit :callback, :on => :update, :if => :condition
+```
+
+GOOD
+```
+after_create_commit -> { foo }
+after_update_commit -> { foo }
+```
+
+See:
+- https://github.com/rubocop-hq/rubocop-rails/issues/52
+

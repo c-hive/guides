@@ -72,6 +72,8 @@ Use your best judgement and make exceptions when needed.
 
 [Best practices](rails/best-practices.md)
 
+[Tips & tricks](rails/tips-tricks.md)
+
 ## Docker
 
 [Best practices](docker/best-practices.md)

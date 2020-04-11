@@ -157,3 +157,14 @@ WORKDIR ${GITHUB_WORKSPACE:-/app}
 # Note: bundle install step removed
 COPY . ./
 ```
+
+#### Avoid `container_name` option
+
+> Because Docker container names must be unique, you cannot scale a service beyond 1 container if you have specified a custom name. Attempting to do so results in an error.
+
+https://docs.docker.com/compose/compose-file/#container_name
+
+> If we were to do it all over again, this (`container_name`) would definitely not be in the spec. It's constantly misused and has been the source of countless issues for users over the years.
+
+https://github.com/docker/compose/issues/745#issuecomment-346487757
+

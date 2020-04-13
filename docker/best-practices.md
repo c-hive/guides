@@ -1,19 +1,85 @@
 # Docker / Best practices
 
+#### Use entrypoints to provide ready-to-use services
+
+GOOD
+
+`entrypoint.sh`
+```sh
+#!/bin/sh
+set -e
+
+wait_for()
+{
+  echo "Waiting $1 seconds for $2:$3"
+  timeout $1 sh -c 'until nc -z $0 $1; do sleep 0.1; done' $2 $3
+  echo "$2:$3 available"
+}
+
+wait_for 10 db 5432
+wait_for 10 redis 6379
+
+bin/rails db:prepare
+
+exec "$@"
+```
+
+BAD
+
+```sh
+docker-compose run web bin/rails db:prepare
+```
+
+#### Use entrypoints to install dependencies during runtime and cache them via volumes
+
+Build-time caches do not transfer to runtime, not even with buildkit.
+
+GOOD
+
+`entrypoint.sh`
+```sh
+#!/bin/sh
+set -e
+
+npm install
+
+exec "$@"
+```
+
+`docker-compose.yml`
+```yml
+services:
+  node-app:
+    volumes:
+      - node-app_npm_cache:/app/node_modules
+
+volumes:
+    # Named volumes are used so that `dc run ...` doesn't re-initialize the volumes
+    node-app_npm_cache:
+```
+
+BAD
+
+`Dockerfile`
+```Dockerfile
+RUN npm install
+```
+
 #### Combine non-hanging entrypoints with docker-compose commands
 
-When using `docker-compose` use `ENTRYPOINT` to ensure that the container is ready to use and use `command` to start the process. This way the entrypoint doesn't hang and it's possibly to also `run` other commands by hand.
+Use entrypoints to ensure that the container is ready to use and use `command` to start the process. This way the entrypoint doesn't hang and it's possible to also use `run`.
+
+GOOD
 
 `Dockerfile`
 ```Dockerfile
 COPY . ./
-RUN chmod +x .docker/web-entrypoint.sh
-ENTRYPOINT [".docker/web-entrypoint.sh"]
+RUN chmod +x entrypoint.sh
+ENTRYPOINT ["./entrypoint.sh"]
 ```
 
-`.docker/web-entrypoint.sh`
+`entrypoint.sh`
 ```sh
-wait_for-it db:5432
 exec "$@"
 ```
 
@@ -25,8 +91,15 @@ services:
 ```
 
 Note that
-- if using `ENTRYPOINT .docker/web-entrypoint.sh`, `exec "$@"` won't work, instead use `ENTRYPOINT [".docker/web-entrypoint.sh"]`
-- if `bin/rails server` would be in `web-entrypoint.sh`, executing commands via `docker-compose run` would not be possible
+- if using `ENTRYPOINT entrypoint.sh`, `exec "$@"` won't work, instead use `ENTRYPOINT ["./entrypoint.sh"]`
+- using `ENTRYPOINT ["entrypoint.sh"]` won't work, instead use `ENTRYPOINT ["./entrypoint.sh"]`
+
+BAD
+
+`entrypoint.sh`
+```sh
+bin/rails server
+```
 
 #### Do not put 1-time setup in entrypoint
 
@@ -72,7 +145,7 @@ See also:
 
 ```yml
 # .docker/docker-compose.yml
-version: '3.7'
+version: '3'
 services:
 
   web:
@@ -85,7 +158,7 @@ services:
 
 ```yml
 # .docker/docker-compose.dev.yml
-version: '3.7'
+version: '3'
 services:
 
   web:
@@ -96,66 +169,7 @@ services:
   cache:
     build:
       context: ../
-      dockerfile: .docker/cache.dev.Dockerfile
-```
-
-#### Use separate service to cache dependencies in development environment
-
-```yml
-# .docker/docker-compose.dev.yml
-version: '3.7'
-services:
-
-  web:
-    build: .
-    command: 'bash -c "wait-for-it cache:1337 && bin/rails server"'
-    depends_on:
-      - cache
-    volumes:
-      - cache:/bundle
-    environment:
-      BUNDLE_PATH: '/bundle'
-
-  cache:
-    build:
-      context: ../
-      dockerfile: .docker/cache.Dockerfile
-    volumes:
-      - bundle:/bundle
-    environment:
-      BUNDLE_PATH: '/bundle'
-    ports:
-      - "1337:1337"
-
-volumes:
-  cache:
-```
-
-```Dockerfile
-# .docker/cache.Dockerfile
-FROM ruby:2.6.3
-RUN apt-get update -qq && apt-get install -y netcat-openbsd
-COPY Gemfile* ./
-COPY .docker/cache-entrypoint.sh ./
-RUN chmod +x cache-entrypoint.sh
-ENTRYPOINT ./cache-entrypoint.sh
-```
-
-```bash
-# .docker/cache-entrypoint.sh
-#!/bin/bash
-
-bundle check || bundle install
-nc -l -k -p 1337
-```
-
-```Dockerfile
-# web.dev.Dockerfile
-FROM ruby:2.6.3
-RUN apt-get update -qq && apt-get install -y nodejs wait-for-it
-WORKDIR ${GITHUB_WORKSPACE:-/app}
-# Note: bundle install step removed
-COPY . ./
+      dockerfile: .docker/web.prod.Dockerfile
 ```
 
 #### Avoid `container_name` option
@@ -167,4 +181,3 @@ https://docs.docker.com/compose/compose-file/#container_name
 > If we were to do it all over again, this (`container_name`) would definitely not be in the spec. It's constantly misused and has been the source of countless issues for users over the years.
 
 https://github.com/docker/compose/issues/745#issuecomment-346487757
-

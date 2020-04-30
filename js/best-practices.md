@@ -167,6 +167,8 @@ console.log("Uh! " + obj);
 
 Enable [`import/no-anonymous-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.mds) to report if a default export is unnamed. 
 
+GOOD
+
 ```js
 const foo = () => {
   console.trace();

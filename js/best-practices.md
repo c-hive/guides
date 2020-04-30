@@ -162,3 +162,49 @@ console.log("Uh! " + obj);
 
 // => Uh! [object Object]
 ```
+
+#### Always give functions names when exporting, otherwise debugging information is lost
+
+Enable [`import/no-anonymous-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.mds) to report if a default export is unnamed. 
+
+```js
+const foo = () => {
+  console.trace();
+
+  // ...
+};
+
+export default foo;
+
+// foo @ foo.js:2
+// ...
+```
+
+GOOD
+
+```js
+export default function foo() {
+  console.trace();
+
+  // ...
+}
+
+
+// foo @ foo.js:2
+// ...
+```
+
+
+
+BAD
+
+```js
+export default () => {
+  console.trace();
+
+  // ...
+};
+
+// (anonymous) @ foo.js:2
+// ...
+```

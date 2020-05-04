@@ -163,7 +163,7 @@ console.log("Uh! " + obj);
 // => Uh! [object Object]
 ```
 
-#### Always give functions names when exporting, otherwise debugging information is lost
+#### Name functions when exporting
 
 Enable [`import/no-anonymous-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md) to report if a default export is unnamed. 
 

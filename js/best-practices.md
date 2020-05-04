@@ -165,6 +165,8 @@ console.log("Uh! " + obj);
 
 #### Name functions when exporting
 
+Otherwise debugging information is lost.
+
 Enable [`import/no-anonymous-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md) to report if a default export is unnamed. 
 
 GOOD

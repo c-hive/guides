@@ -1,26 +1,19 @@
 # JavaScript / Tips & Tricks
 
-#### Singleton classes
+#### Practical Example of Writing Singleton Classes
 
 ```js
-class Foo {
-    // ...
-}
+import ElectronStore from "electron-store";
 
-class Singleton {
+export default class SingletonStore {
    static instance = null;
 
    static getInstance() {
       if(!this.instance) {
-         this.instance = new Foo();
+         this.instance = new ElectronStore();
       }
 
       return this.instance;
    }
 }
-
-const s1 = Singleton.getInstance();
-const s2 = Singleton.getInstance();
-
-console.log(s1 === s2); // => true
 ```

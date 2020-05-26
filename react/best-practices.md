@@ -55,12 +55,16 @@ const combineProviders = (...providers) => ({ children }) =>
     children
   );
 
-const CombinedProviders = combineProviders(
-  <AuthProvider>,
-  <NavProvider>,
-  <CookiesProvider>,
-  <AppProvider>
+const ContextProviders = combineProviders(
+  AuthProvider,
+  NavProvider,
+  CookiesProvider,
+  AppProvider
 );
+
+<ContextProviders>
+  {children}
+</ContextProviders>
 ```
 
 BAD

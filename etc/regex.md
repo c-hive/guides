@@ -45,7 +45,7 @@ Regex for the practical use case:
 
 `^(?!.*?_.*?)(?!(?:[\w]+?\.)?\-[\w\.\-]*?)(?![\w]+?\-\.(?:[\w\.\-]+?))(?=[\w])(?=[\w\.\-]*?\.+[\w\.\-]*?)(?![\w\.\-]{254})(?!(?:\.?[\w\-\.]*?[\w\-]{64,}\.)+?)[\w\.\-]+?(?<![\w\-\.]*?\.[\d]+?)(?<=[\w\-]{2,})(?<![\w\-]{25})$`
 
-https://regex101.com/r/FLA9Bv/40 (_Note: currently only works in Chrome because the regex uses lookbehinds which are only supported in ECMA2018_)
+https://regex101.com/r/FLA9Bv/41 (_Note: currently only works in Chrome because the regex uses lookbehinds which are only supported in ECMA2018_)
 
 See also: [TLD limitations](https://stackoverflow.com/questions/7411255/is-it-possible-to-have-one-single-character-top-level-domain-name), [domain limitations](https://stackoverflow.com/questions/32290167/what-is-the-maximum-length-of-a-dns-name/32294443), [list of TLDs](http://data.iana.org/TLD/tlds-alpha-by-domain.txt), [by-the-books regex and explanation](https://regexr.com/3g5j0)
 

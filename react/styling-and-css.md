@@ -117,39 +117,13 @@ Despite our efforts there're still some custom conventions we have to establish,
 
 It is very often the case that CSS-in-JS is presented with examples where it is part and parcel of the components. This gives the wrong idea and (understandably) scares off poeple. Separating the concerns of style and business logic is encouraged on many levels. Starting on component level (see: ["Presentational and Container Components" by Dan Abramov](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)) reaching down to `styled-components` specifics (see: ["Separate your code with Styled Components" by Sara Vieira](https://blog.cloudboost.io/separate-your-code-with-styled-components-ec4fd1ee3ef8), ["Get Organized with Styled-Components" by Jeremy Davis](https://www.toptal.com/javascript/styled-components-library)).
 
-Our approach is inspired by said articles, aiming to provide a clear and generic separation between styles and components. The main difference being that we don't allow styled components to be defined in style files. This in turn:
-- makes the separation abundantly clear
-- makes the use of styles explicit in the component files
-- gets rid of the [differentiation between the props and non-props versions](https://gist.github.com/SaraVieira/972bf23f0f2d2852dd4223f7a906eeb8)
+Our approach is inspired by said articles, aiming to provide a clear and generic separation between styles and components.
 
-Component styles are declared in a separate `.styles.js` file using the [`css` helper function](https://www.styled-components.com/docs/api#css). See the [example](#css-in-js-example) below.
+Component styles are declared in a separate `.styles.js` file using the [`styled` helper function](https://styled-components.com/docs/api#styled). See the [example](#css-in-js-example) below.
 
 #### Use SMACSS categories for cross-component styles
 
 [SMACSS categories](https://smacss.com/book/categorizing) provide a practical separation of concerns. Module and state categories are covered by the `component.style.js` pattern, however styles that reach accross components (whether because they are global or just affect many components) need a proper place. Place them in `src/common_styles` and use SMACSS catogires for grouping. Applies both to CSS and CSS-in-JS.
-
-#### Naming
-
-Elements within the style files use the `Style` suffix.
-
-```js
-// => Component.style.js
-import { css } from "styled-components";
-
-export const buttonStyle = css`
-  // ...
-`;
-```
-
-Styled components don't use the suffix.
-
-```js
-// => Component.js
-import styled from "styled-components";
-import { buttonStyle } from "./component.style";
-
-const Button = styled.button`${buttonStyle}`;
-```
 
 
 ## CSS-in-JS example
@@ -160,30 +134,30 @@ const Button = styled.button`${buttonStyle}`;
     ├── common_styles
     │   └── layout.scss
     └── components
-        └── Header
-            ├── Header.js
-            └── Header.style.js
+        └── Footer
+            ├── Footer.js
+            └── Footer.style.js
 ```
 
-Header.js
+Footer.js
 ```js
-import styled from "styled-components";
-import { headerStyle } from "./Header.style";
+import { TextWrapperDiv, SocialIcon } from "./Footer.style";
 
-const header = () => {
-  const Header = styled.div`${headerStyle}`;
-
-  return <Header />;
+export const Footer = (props) => {
+  return <div>
+    <TextWrapperDiv {...props}>
+      // ...
+    </ TextWrapperDiv>
+    <SocialIcon />
+  </div>
 };
-
-export default header;
 ```
 
-Header.style.js
+Footer.style.js
 ```js
-import { css } from "styled-components";
+import { styled } from "styled-components";
 
-export const headerStyle = css`
+export const TextWrapperDiv = styled.div`
   margin: 0.5rem 1rem;
   width: 11rem;
   background: transparent;
@@ -194,6 +168,10 @@ export const headerStyle = css`
     color: palevioletred;
   `}
 `;
+
+export const SocialIcon = styled.img`
+  width: 45px;
+`
 ```
 
 ## Further reading

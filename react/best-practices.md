@@ -52,6 +52,7 @@ See also:
 - https://kentcdodds.com/blog/prop-drilling
 - https://kentcdodds.com/blog/application-state-management-with-react/
 - https://kentcdodds.com/blog/how-to-use-react-context-effectively/
+- https://github.com/c-hive/basics/tree/master/react-hook-context-memo
 
 #### Use `reduce()` to combine multiple providers and enhance readibility
 

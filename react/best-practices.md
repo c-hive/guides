@@ -42,6 +42,17 @@ export const useData = () => {
 
 ### Contexts
 
+#### Use contexts for..
+
+- centralized state or data storage, similar to Redux (but simpler)
+- sharing data across multiple components without props-drilling
+- keeping data between component re-renders
+
+See also:
+- https://kentcdodds.com/blog/prop-drilling
+- https://kentcdodds.com/blog/application-state-management-with-react/
+- https://kentcdodds.com/blog/how-to-use-react-context-effectively/
+
 #### Use `reduce()` to combine multiple providers and enhance readibility
 
 Keep in mind the caveat that the order of the arguments is reversed as opposed to the regular usage.

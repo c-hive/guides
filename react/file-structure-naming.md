@@ -17,12 +17,12 @@
 │   │   └── layout.css
 │   ├── components
 │   │   ├── App
-│   │   │   ├── App.css
+│   │   │   ├── App.css or App.style.js
 │   │   │   ├── App.js
 │   │   │   ├── App.test.js
 │   │   │   └── App.test.js.snap
 │   │   └── Header
-│   │       ├── Header.css
+│   │       ├── Header.css or Header.style.js
 │   │       ├── Header.js
 │   │       ├── Header.test.js
 │   │       └── Header.spec.js.snap

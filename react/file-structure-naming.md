@@ -1,5 +1,9 @@
 # React / File structure and naming
 
+See also:
+- https://medium.com/hackernoon/the-100-correct-way-to-structure-a-react-app-or-why-theres-no-such-thing-3ede534ef1ed
+- https://reactjs.org/docs/faq-structure.html
+
 ## Example project structure
 
 ```
@@ -13,7 +17,7 @@
 │   └── index.html
 ├── README.md
 ├── src
-│   ├── common_styles
+│   ├── styles
 │   │   └── layout.css
 │   ├── components
 │   │   ├── App
@@ -50,7 +54,7 @@
   - Non-UI / non-component / utility features not tightly linked to the specific project (e.g. `Api`, `CorsProxy`)
 - `src/resources`
   - Machine readable, hardcoded data (e.g. JSON)
-- `src/common_styles`
+- `src/styles`
   - style files applied to the whole project
 
 ## Grouping
@@ -59,3 +63,7 @@
 - A component folder contains all related code (e.g. js, styles, tests). See also: [Jest conventions](https://jestjs.io/docs/en/configuration.html#testregex-string)
 - [Jest snapshot location can be configured in v24+](https://medium.com/c-hive/no-more-snapshots-folders-with-jest-98de26681764)
 - Files can be logically groupped into more folders (e.g. `selectors/LeagueSelector` and `selectors/ItemTypeSelector`)
+
+## Etc
+
+- [Do not use `jsx` or `tsx` extensions](https://github.com/facebook/create-react-app/issues/87#issuecomment-234627904)

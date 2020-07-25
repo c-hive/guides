@@ -82,7 +82,9 @@ Use your best judgement and make exceptions when needed.
 
 ## CI
 
-[GitHub Actions best practices](ci/gh-actions.md)
+[Using GitHub Actions best practices](ci/gh-actions.md)
+
+[Writing GitHub Actions best practices](ci/writing-gh-actions.md)
 
 [GitHub Actions issues and limitations](ci/gh-actions-issues.md)
 

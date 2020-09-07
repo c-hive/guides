@@ -30,8 +30,6 @@ Use your best judgement and make exceptions when needed.
 
 [Best practices](js/best-practices.md)
 
-[CI configurations](js/ci-configs)
-
 ### React
 
 [File structure and naming](react/file-structure-naming.md)

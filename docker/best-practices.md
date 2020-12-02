@@ -1,5 +1,31 @@
 # Docker / Best practices
 
+## Goals
+
+1, `docker-compose up` should create a working or failed state. E.g. if adding new dependencies or migrations, often `docker-compose up` would work but the app would throw errors about missing dependencies or migrations.
+
+2, Minimal setup time. E.g. cache dependencies.
+
+#### Use separate files for separate environments and services when needed
+
+GOOD
+
+```yml
+# .docker/docker-compose.dev.yml
+version: '3'
+services:
+
+  web:
+    build:
+      context: ../
+      dockerfile: .docker/web.dev.Dockerfile
+  
+  cache:
+    build:
+      context: ../
+      dockerfile: .docker/web.prod.Dockerfile
+```
+
 #### Use entrypoints to provide ready-to-use services
 
 GOOD
@@ -32,7 +58,7 @@ docker-compose run web bin/rails db:prepare
 
 #### Use entrypoints to install dependencies during runtime and cache them via volumes
 
-Build-time caches do not transfer to runtime, not even with buildkit.
+For local development. A better alternative would be build-time caching, but those do not transfer to runtime, not even with buildkit.
 
 GOOD
 
@@ -152,24 +178,6 @@ services:
     build:
       context: ../
       dockerfile: .docker/Dockerfile
-```
-
-#### Use separate files for separate environments and services when needed
-
-```yml
-# .docker/docker-compose.dev.yml
-version: '3'
-services:
-
-  web:
-    build:
-      context: ../
-      dockerfile: .docker/web.dev.Dockerfile
-  
-  cache:
-    build:
-      context: ../
-      dockerfile: .docker/web.prod.Dockerfile
 ```
 
 #### Avoid `container_name` option

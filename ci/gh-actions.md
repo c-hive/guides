@@ -16,19 +16,7 @@ jobs:
     runs-on: ubuntu-18.04
     timeout-minutes: 10
     steps:
-    - uses: actions/checkout@v1
-```
-
-#### Add support for skipping CI
-
-GOOD
-
-```yml
-jobs:
-  test:
-    name: Build and test
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+      - uses: actions/checkout@v1
 ```
 
 #### Print current ref
@@ -46,6 +34,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: Show current ref
-      run: echo ${{ github.ref }}
+      - name: Show current ref
+        run: echo ${{ github.ref }}
 ```
